@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/ShortDEV/Takayuki/Scenes/TestField.unity
+    guid: 6bbba895b4ae1ba468ea54533c09ab5b
+  - enabled: 1
+    path: Assets/ShortDEV/Takayuki/Scenes/TestScene_t.unity
+    guid: 6aa3fb4519f0ca44cbba9db0139d3ccd
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

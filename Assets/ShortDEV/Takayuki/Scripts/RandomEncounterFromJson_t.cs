@@ -4,11 +4,6 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
 
-using System.Collections.Generic;
-using UnityEngine;
-using System.IO;
-using UnityEngine.SceneManagement;
-
 public class MonsterData
 {
     public List<Monster> monsters;
@@ -24,7 +19,7 @@ public class Monster
 
 public class RandomEncounterFromJson_t : MonoBehaviour
 {
-    public string jsonFilePath = "Assets/ShortDEV/takayuki/Scripts/data_t.json"; // JSONファイルのパス
+    public string jsonFilePath = "Assets/ShortDEV/Takayuki/Scripts/data_t.json"; // JSONファイルのパス
     private List<Monster> monsters;
 
     void Start()
@@ -43,7 +38,7 @@ public class RandomEncounterFromJson_t : MonoBehaviour
             Debug.Log("JSON content: " + json);
             MonsterData monsterData = JsonUtility.FromJson<MonsterData>(json);
             monsters = monsterData.monsters;
-            Debug.Log("Monsters loaded: " + monsters.Count);
+            Debug.Log("Monsters loaded: " + (monsters != null ? monsters.Count.ToString() : "null"));
         }
         else
         {
@@ -51,19 +46,29 @@ public class RandomEncounterFromJson_t : MonoBehaviour
         }
     }
 
+
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("OnTriggerEnter2D called with: " + other.name);
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player entered the encounter area.");
-            if (Random.value < 1.0f) // エンカウント確率100%（デバッグ用）
+            if (Random.value < 1.0f) // エンカウント確率20%
             {
                 Debug.Log("Encounter triggered.");
                 TriggerEncounter();
             }
+            else
+            {
+                Debug.Log("No encounter this time.");
+            }
+        }
+        else
+        {
+            Debug.Log("Non-player object entered: " + other.name);
         }
     }
+
 
     void TriggerEncounter()
     {
@@ -71,7 +76,6 @@ public class RandomEncounterFromJson_t : MonoBehaviour
         if (randomMonster != null)
         {
             Debug.Log("Encountered Monster: " + randomMonster.name);
-
             // バトルシーンのロード
             SceneManager.LoadScene("TestScene_t"); // 実際のシーン名に変更
         }
@@ -80,6 +84,7 @@ public class RandomEncounterFromJson_t : MonoBehaviour
             Debug.Log("No monster found for encounter.");
         }
     }
+
 
     Monster GetRandomMonster()
     {

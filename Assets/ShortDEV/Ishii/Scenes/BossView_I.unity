@@ -3572,7 +3572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157600980492693301, guid: 4c609361d5883364cb50c001a61b2d4f, type: 3}
       propertyPath: m_Name
-      value: World_ls_Bridge
+      value: Bridge
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

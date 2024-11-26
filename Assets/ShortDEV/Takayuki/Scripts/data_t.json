@@ -1,0 +1,19 @@
+{
+    "monsters": [
+        {
+            "name": "ゴブリン",
+            "health": 30,
+            "attack": 5
+        },
+        {
+            "name": "オーク",
+            "health": 50,
+            "attack": 10
+        },
+        {
+            "name": "ピカチュウ",
+            "health": 200,
+            "attack": 25
+        }
+    ]
+}

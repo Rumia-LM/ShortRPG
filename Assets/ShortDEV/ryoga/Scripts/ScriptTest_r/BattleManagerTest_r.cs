@@ -8,8 +8,12 @@ public class BattleManagerTest_r : MonoBehaviour
     public Button AttackButton;
     public Button HealButton;
     public Button EscapeButton;
+    public Slider PlayerHPBar;
+    public TMP_Text PlayerNameAndHPText;
     public Slider EnemyHPBar;
     public TMP_Text BattleLogText;
+    public ScrollRect BattleLogScrollRect;
+    public GameObject EnemySprite;
 
     private PlayerTest_r player;
     private EnemyTest_r enemy;
@@ -17,10 +21,14 @@ public class BattleManagerTest_r : MonoBehaviour
     void Start()
     {
         // プレイヤーと敵を初期化
-        player = new PlayerTest_r("勇者", 100, 20);
-        enemy = new EnemyTest_r("スライム", 30, 10);
+        player = new PlayerTest_r("Hero", 100, 20);
+        enemy = new EnemyTest_r("Slime", 30, 10);
 
         // HPバーの初期化
+        PlayerHPBar.maxValue=player.MaxHP;
+        PlayerHPBar.value=player.HP;
+        UpdatePlayerNameAndHPText();
+
         EnemyHPBar.maxValue = enemy.MaxHP;
         EnemyHPBar.value = enemy.HP;
 
@@ -30,19 +38,20 @@ public class BattleManagerTest_r : MonoBehaviour
         EscapeButton.onClick.AddListener(OnEscape);
 
         // 初期ログを表示
-        UpdateBattleLog("戦闘開始！");
+        UpdateBattleLog("Battle Start!");
     }
 
     // 攻撃コマンド
     void OnAttack()
     {
         enemy.TakeDamage(player.ATK);
-        UpdateBattleLog($"勇者は攻撃！スライムに{player.ATK}のダメージ！");
+        UpdateBattleLog($"Hero attacked! Slime took {player.ATK} damage!");
         UpdateEnemyHP();
 
         if (enemy.IsDead())
         {
-            UpdateBattleLog("スライムを倒した！");
+            UpdateBattleLog("Slime defeated!");
+            HideEnemySprite(); // 敵のスプライトを非表示
             EndBattle();
         }
         else
@@ -58,8 +67,8 @@ public class BattleManagerTest_r : MonoBehaviour
         player.HP += healAmount;
         if (player.HP > player.MaxHP) player.HP = player.MaxHP;
 
-        UpdateBattleLog($"勇者は回復！{healAmount}のHPを回復！");
-
+        UpdateBattleLog($"Hero healed {healAmount} HP!");
+        UpdatePlayerHP();
         EnemyTurn();
     }
 
@@ -68,12 +77,12 @@ public class BattleManagerTest_r : MonoBehaviour
     {
         if (Random.Range(0f, 1f) > 0.5f)
         {
-            UpdateBattleLog("勇者は逃げ出した！");
+            UpdateBattleLog("Hero successfully escaped!");
             EndBattle();
         }
         else
         {
-            UpdateBattleLog("逃げるのに失敗した！");
+            UpdateBattleLog("Escape failed!");
             EnemyTurn();
         }
     }
@@ -82,24 +91,50 @@ public class BattleManagerTest_r : MonoBehaviour
     void EnemyTurn()
     {
         player.TakeDamage(enemy.ATK);
-        UpdateBattleLog($"スライムの攻撃！勇者に{enemy.ATK}のダメージ！");
+        UpdateBattleLog($"Slime attacked! Hero took {enemy.ATK} damage!");
+        UpdatePlayerHP();
 
         if (player.IsDead())
         {
-            UpdateBattleLog("勇者は倒された...");
+            UpdateBattleLog("Hero was defeated...");
             EndBattle();
         }
     }
 
-    // バトルログを更新
+    // バトルログを更新(スクロール対応)
     void UpdateBattleLog(string message)
     {
+        // ログに新しいメッセージを追加
         BattleLogText.text += message + "\n";
+        // テキストの親オブジェクト（Content）の高さを再計算
+        LayoutRebuilder.ForceRebuildLayoutImmediate(BattleLogText.rectTransform);
+        // Canvasの更新を強制して、UIを即座に反映
+        Canvas.ForceUpdateCanvases();
+        // ScrollRectのスクロール位置を最下部に設定
+        BattleLogScrollRect.verticalNormalizedPosition = 1f;
     }
+
+    // プレイヤーのHPバーと名前+HPを更新
+    void UpdatePlayerHP()
+    {
+        PlayerHPBar.value = player.HP;
+        UpdatePlayerNameAndHPText();
+    }
+
+    void UpdatePlayerNameAndHPText()
+    {
+        PlayerNameAndHPText.text = $"{player.Name}  HP:{player.HP}/{player.MaxHP}"; // 例: "Hero  HP:50/100"
+    }
+
     // 敵HPバー更新
     void UpdateEnemyHP()
     {
         EnemyHPBar.value = enemy.HP;
+    }
+
+    // 敵のスプライトを非表示
+    void HideEnemySprite(){
+        EnemySprite.SetActive(false);
     }
 
     // バトル終了

@@ -1,0 +1,25 @@
+{
+    "monsters": [
+        {
+            "name": "Slime",
+            "health": 20,
+            "attack": 3,
+            "experience": 5,
+            "gold": 1
+        },
+        {
+            "name": "Goblin",
+            "health": 30,
+            "attack": 5,
+            "experience": 10,
+            "gold": 3
+        },
+        {
+            "name": "Zombie",
+            "health": 40,
+            "attack": 7,
+            "experience": 12,
+            "gold": 2
+        }
+    ]
+}

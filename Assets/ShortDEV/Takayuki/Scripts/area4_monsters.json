@@ -1,0 +1,11 @@
+{
+    "monsters": [
+        {
+            "name": "Dragon",
+            "health": 200,
+            "attack": 25,
+            "experience": 100,
+            "gold": 50
+        }
+    ]
+}

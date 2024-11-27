@@ -21,11 +21,14 @@ public class RandomEncounterFromJson_t : MonoBehaviour
 {
     public string jsonFilePath = "Assets/ShortDEV/Takayuki/Scripts/data_t.json"; // JSONファイルのパス
     private List<Monster> monsters;
+    private float encounterCooldown = 2.0f; // エンカウント判定の間隔（秒）
+    private float lastEncounterTime;
 
     void Start()
     {
         LoadMonstersFromJson();
         Debug.Log("Monsters list count after load: " + (monsters != null ? monsters.Count.ToString() : "null"));
+        lastEncounterTime = Time.time; // 最初のエンカウントタイムを初期化
     }
 
     void LoadMonstersFromJson()
@@ -46,29 +49,22 @@ public class RandomEncounterFromJson_t : MonoBehaviour
         }
     }
 
-
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("OnTriggerEnter2D called with: " + other.name);
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player entered the encounter area.");
-            if (Random.value < 1.0f) // エンカウント確率20%
+            if (Time.time - lastEncounterTime >= encounterCooldown)
             {
-                Debug.Log("Encounter triggered.");
-                TriggerEncounter();
+                Debug.Log("Player is in the encounter area.");
+                if (Random.value < 0.2f) // エンカウント確率20%
+                {
+                    Debug.Log("Encounter triggered.");
+                    TriggerEncounter();
+                }
+                lastEncounterTime = Time.time; // エンカウントタイムを更新
             }
-            else
-            {
-                Debug.Log("No encounter this time.");
-            }
-        }
-        else
-        {
-            Debug.Log("Non-player object entered: " + other.name);
         }
     }
-
 
     void TriggerEncounter()
     {
@@ -76,7 +72,6 @@ public class RandomEncounterFromJson_t : MonoBehaviour
         if (randomMonster != null)
         {
             Debug.Log("Encountered Monster: " + randomMonster.name);
-            // バトルシーンのロード
             SceneManager.LoadScene("TestScene_t"); // 実際のシーン名に変更
         }
         else
@@ -84,7 +79,6 @@ public class RandomEncounterFromJson_t : MonoBehaviour
             Debug.Log("No monster found for encounter.");
         }
     }
-
 
     Monster GetRandomMonster()
     {

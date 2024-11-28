@@ -1,11 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_t : MonoBehaviour
 {
     public float speed = 5.0f;
-    
+    private Rigidbody2D rb;
+    private Vector2 moveInput;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody2D component not found.");
+        }
+    }
+
     void Update()
     {
         // 入力の取得
@@ -13,9 +25,12 @@ public class Player_t : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
         // 移動ベクトルの計算
-        Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
+        moveInput = new Vector2(moveHorizontal, moveVertical);
+    }
 
+    void FixedUpdate()
+    {
         // キャラクターの移動
-        transform.position += movement * speed * Time.deltaTime;
+        rb.velocity = moveInput * speed;
     }
 }

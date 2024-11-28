@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/ShortDEV/ryoga/Scenes/StartSceneTest_r.unity
     guid: 6e73687458a4c47d48e0201a0f709f26
   - enabled: 1
-    path: Assets/ShortDEV/ryoga/Scenes/FieldTest_r.unity
+    path: Assets/ShortDEV/ryoga/Scenes/FieldTest2_r.unity
     guid: bf85d410d4dd0496a9f4c32f67140cdc
   - enabled: 1
     path: Assets/ShortDEV/ryoga/Scenes/GameOverTest_r.unity

@@ -18,6 +18,7 @@ public class BattleManagerTest_r : MonoBehaviour
     public TMP_Text BattleLogText;
     public ScrollRect BattleLogScrollRect;
     public GameObject EnemySprite;
+    public Image FadeImage; //フェードアウト用の黒いイメージ
 
     private SpriteRenderer enemySpriteRenderer; //敵スプライトのレンダラー
     private PlayerTest_r player;
@@ -30,7 +31,7 @@ public class BattleManagerTest_r : MonoBehaviour
     {
         // プレイヤーと敵を初期化
         player = new PlayerTest_r("Hero", 100, 20);
-        enemy = new EnemyTest_r("Slime", 50, 10);
+        enemy = new EnemyTest_r("Slime", 50, 100);
 
         // HPバーの初期化
         PlayerHPBar.maxValue=player.MaxHP;
@@ -81,7 +82,7 @@ public class BattleManagerTest_r : MonoBehaviour
             if(enemy.IsDead()){
                 yield return LogAction("Slime defeated!");
                 HideEnemySpriteAndHPBar(); //敵スプライトとHPバーを非表示
-                EndBattle();
+                EndBattle("win"); //勝利処理
             }else{
                 yield return EnemyTurn(); //敵のターンへ
             }
@@ -89,7 +90,8 @@ public class BattleManagerTest_r : MonoBehaviour
         // 回復コマンド
         }else if(action=="heal"){
             if(player.HP>=player.MaxHP){
-                yield return LogAction("Hero healed! But Hero's HP is full"); //HP満タン時、回復失敗
+                yield return LogAction("Hero healed!"); //HP満タン時、回復失敗
+                yield return LogAction("But Hero's HP is full...");
             }else{
                 int healAmount=UnityEngine.Random.Range(10,30);
                 if(player.HP+healAmount>player.MaxHP){
@@ -108,7 +110,7 @@ public class BattleManagerTest_r : MonoBehaviour
             yield return LogAction("Hero escaped!");
             if(UnityEngine.Random.Range(0f,1f)>0.5f){
                 yield return LogAction("Hero managed to escape!");
-                EndBattle();
+                EndBattle("escape"); //逃げる成功
             }else{
                 yield return LogAction("Hero couldn't escape...");
                 yield return EnemyTurn(); //敵のターンへ
@@ -137,7 +139,7 @@ public class BattleManagerTest_r : MonoBehaviour
         if (player.IsDead())
         {
             UpdateBattleLog("Hero was defeated...");
-            EndBattle();
+            EndBattle("lose"); //敗北処理
         }
     }
 
@@ -250,24 +252,42 @@ public class BattleManagerTest_r : MonoBehaviour
     }
 
     // バトル終了
-    void EndBattle()
+    void EndBattle(string result)
     {
         isBattleOver=true; //戦闘終了フラグを立てる
         SetButtonsInteractable(false); //ボタンを無効化
 
-        if(enemy.IsDead()){
-            //勝利→フィールドに移行
-            StartCoroutine(TransitionToScene("FieldTest_r"));
-        }else if(player.IsDead()){
+        //戦闘結果に応じたシーンの切り替え
+        if(result=="win"||result=="escape"){
+            //勝利・逃げる成功→フィールドに移行
+            StartCoroutine(FadeAndTransitionToScene("FieldTest_r"));
+        }else if(result=="lose"){
             //敗北→GameOver画面に移行
-            StartCoroutine(TransitionToScene("GameOverTest_r"));
+            StartCoroutine(FadeAndTransitionToScene("GameOverTest_r"));
         }
     }
 
     //シーン遷移コルーチン
-    IEnumerator TransitionToScene(string sceneName){
-        yield return LogAction("戦闘終了...シーンを切り替えてます");
-        yield return new WaitForSeconds(1.5f); //少し待機してシーンを切り替え
+    IEnumerator FadeAndTransitionToScene(string sceneName){
+        yield return StartCoroutine(FadeOut()); //フェードアウト開始
         SceneManager.LoadScene(sceneName);
+    }
+
+    //フェードアウト処理
+    IEnumerator FadeOut()
+    {
+        float fadeDuration = 2.0f; // フェードアウトにかかる時間
+        float elapsedTime = 0f;
+
+        Color fadeColor = FadeImage.color;
+
+        // アルファ値を徐々に1.0に近づける
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            fadeColor.a = Mathf.Clamp01(elapsedTime / fadeDuration);
+            FadeImage.color = fadeColor;
+            yield return null;
+        }
     }
 }

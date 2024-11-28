@@ -85,7 +85,7 @@ public class AreaEncounter_t : MonoBehaviour
         if (randomMonster != null)
         {
             Debug.Log("Encountered Monster: " + randomMonster.name);
-            SceneManager.LoadScene("TestScene_t"); // 実際のシーン名に変更
+            SceneManager.LoadScene("ScriptTest_r_t"); // 実際のシーン名に変更
         }
         else
         {

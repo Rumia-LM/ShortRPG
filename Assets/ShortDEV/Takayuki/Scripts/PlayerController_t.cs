@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController_t : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class PlayerController_t : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0; // 重力スケールを0に設定
-        transform.position = PlayerData_t.position;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // 連続的な衝突検出モード
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate; // 補間を有効に設定
+        transform.position = PlayerData_t.targetPosition;
         health = PlayerData_t.health;
         attack = PlayerData_t.attack;
     }
@@ -29,5 +32,13 @@ public class PlayerController_t : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = moveInput * moveSpeed;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            rb.velocity = Vector2.zero; // 壁にぶつかったら速度を0に設定
+        }
     }
 }

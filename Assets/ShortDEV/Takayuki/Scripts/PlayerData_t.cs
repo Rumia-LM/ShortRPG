@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData_t : MonoBehaviour
+public class PlayerData_t
 {
     public static Vector3 position;
+    public static Vector3 targetPosition; // 追加
     public static int health;
     public static int attack;
 
@@ -16,9 +17,9 @@ public class PlayerData_t : MonoBehaviour
         attack = atk;
     }
 
-    internal static void SaveData(Vector3 position, object health, object attack)
+    public static void SaveTargetPosition(Vector3 targetPos)
     {
-        throw new NotImplementedException();
+        targetPosition = targetPos;
     }
 }
 

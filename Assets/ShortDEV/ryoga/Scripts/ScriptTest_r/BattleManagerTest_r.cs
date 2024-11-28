@@ -29,9 +29,13 @@ public class BattleManagerTest_r : MonoBehaviour
 
     void Start()
     {
-        // プレイヤーと敵を初期化
-        player = new PlayerTest_r("Hero", 100, 20);
-        enemy = new EnemyTest_r("Slime", 50, 100);
+        //PlayerDataManagerTest_rからプレイヤー情報を取得
+        int maxHP=PlayerDataManagerTest_r.Instance.MaxHP; //最大HP
+        int currentHP=PlayerDataManagerTest_r.Instance.CurrentHP; //現在のHP
+        player=new PlayerTest_r("Hero",maxHP,PlayerDataManagerTest_r.Instance.ATK); //ATK
+        player.HP=currentHP;
+        //敵を初期化
+        enemy = new EnemyTest_r("Slime", 50, 10);
 
         // HPバーの初期化
         PlayerHPBar.maxValue=player.MaxHP;
@@ -98,6 +102,8 @@ public class BattleManagerTest_r : MonoBehaviour
                     healAmount=player.MaxHP-player.HP; //最大HPを超えない
                 }
                 player.HP+=healAmount;
+                PlayerDataManagerTest_r.Instance.UpdateHP(player.HP); //HPを保存
+
                 //回復ログ表示とHP更新を同時に行う
                 yield return LogAction($"Hero healed! Recover {healAmount} HP!",()=>{
                     UpdatePlayerHP();
@@ -129,6 +135,7 @@ public class BattleManagerTest_r : MonoBehaviour
     {   
         yield return LogAction("Slime attacked!");
         player.TakeDamage(enemy.ATK);
+        PlayerDataManagerTest_r.Instance.UpdateHP(player.HP); //HPを保存
 
         //ダメージログ表示とHP更新を同時に行う
         yield return LogAction($"Hero took {enemy.ATK} damage!",()=>{
@@ -259,11 +266,11 @@ public class BattleManagerTest_r : MonoBehaviour
 
         //戦闘結果に応じたシーンの切り替え
         if(result=="win"||result=="escape"){
-            //勝利・逃げる成功→フィールドに移行
-            StartCoroutine(FadeAndTransitionToScene("FieldTest_r"));
+            PlayerDataManagerTest_r.Instance.UpdateHP(player.HP); //現在のHPを保存
+            StartCoroutine(FadeAndTransitionToScene("FieldTest_r")); //勝利・逃げる成功→フィールドに移行
         }else if(result=="lose"){
-            //敗北→GameOver画面に移行
-            StartCoroutine(FadeAndTransitionToScene("GameOverTest_r"));
+            PlayerDataManagerTest_r.Instance.ResetData(); //敗北時にデータをリセット
+            StartCoroutine(FadeAndTransitionToScene("GameOverTest_r")); //敗北→GameOver画面に移行
         }
     }
 

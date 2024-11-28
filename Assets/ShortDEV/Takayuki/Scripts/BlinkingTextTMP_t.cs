@@ -1,4 +1,9 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine.UI;
 using TMPro;
 
@@ -16,6 +21,9 @@ public class BlinkingTextTMP : MonoBehaviour
             textToBlink = GetComponent<TextMeshProUGUI>();
         }
         originalColor = textToBlink.color;
+
+        // デバッグログの設定を無効化
+        Application.SetStackTraceLogType(LogType.Warning, StackTraceLogType.None);
     }
 
     void Update()
@@ -24,3 +32,4 @@ public class BlinkingTextTMP : MonoBehaviour
         textToBlink.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
     }
 }
+

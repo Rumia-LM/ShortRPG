@@ -1,0 +1,25 @@
+{
+    "monsters": [
+        {
+            "name": "Troll",
+            "health": 80,
+            "attack": 15,
+            "experience": 30,
+            "gold": 10
+        },
+        {
+            "name": "Vampire",
+            "health": 90,
+            "attack": 18,
+            "experience": 35,
+            "gold": 20
+        },
+        {
+            "name": "Golem",
+            "health": 120,
+            "attack": 22,
+            "experience": 50,
+            "gold": 30
+        }
+    ]
+}

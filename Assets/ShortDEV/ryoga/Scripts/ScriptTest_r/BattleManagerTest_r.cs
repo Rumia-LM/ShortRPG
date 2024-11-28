@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections;
 using System;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class BattleManagerTest_r : MonoBehaviour
 {
@@ -252,6 +253,21 @@ public class BattleManagerTest_r : MonoBehaviour
     void EndBattle()
     {
         isBattleOver=true; //戦闘終了フラグを立てる
-        SetButtonsInteractable(false);
+        SetButtonsInteractable(false); //ボタンを無効化
+
+        if(enemy.IsDead()){
+            //勝利→フィールドに移行
+            StartCoroutine(TransitionToScene("FieldTest_r"));
+        }else if(player.IsDead()){
+            //敗北→GameOver画面に移行
+            StartCoroutine(TransitionToScene("GameOverTest_r"));
+        }
+    }
+
+    //シーン遷移コルーチン
+    IEnumerator TransitionToScene(string sceneName){
+        yield return LogAction("戦闘終了...シーンを切り替えてます");
+        yield return new WaitForSeconds(1.5f); //少し待機してシーンを切り替え
+        SceneManager.LoadScene(sceneName);
     }
 }

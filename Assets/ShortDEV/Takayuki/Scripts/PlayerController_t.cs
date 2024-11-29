@@ -1,11 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController_t : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public static PlayerController_t instance;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // シーン遷移時にオブジェクトが破棄されないようにする
+        }
+        else
+        {
+            Destroy(gameObject); // 既にインスタンスが存在する場合は新しいインスタンスを破棄する
+        }
+    }
+
+    public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     public int health;
@@ -14,10 +26,20 @@ public class PlayerController_t : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0; // 重力スケールを0に設定
-        transform.position = PlayerData_t.position;
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody2D component not found on Player_t. Please attach a Rigidbody2D component.");
+            return;
+        }
+        rb.gravityScale = 0;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+
+        transform.position = PlayerData_t.targetPosition;
         health = PlayerData_t.health;
         attack = PlayerData_t.attack;
+
+        Debug.Log("Player position set to: " + transform.position);
     }
 
     void Update()
@@ -28,6 +50,21 @@ public class PlayerController_t : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = moveInput * moveSpeed;
+        if (rb != null)
+        {
+            rb.velocity = moveInput * moveSpeed;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            if (rb != null)
+            {
+                rb.velocity = Vector2.zero;
+                Debug.Log("Collided with wall.");
+            }
+        }
     }
 }

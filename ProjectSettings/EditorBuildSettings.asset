@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ShortDEV/Takayuki/Scenes/TestField.unity
-    guid: 6bbba895b4ae1ba468ea54533c09ab5b
+    path: Assets/ShortDEV/Takayuki/Scenes/FirstTown_t.unity
+    guid: c07a84bc2f04d9644914f6cae016a129
+  - enabled: 1
+    path: Assets/ShortDEV/Takayuki/Scenes/FieldMapScene2_t.unity
+    guid: c80bfee8093b11d4b9f3848f67d932f4
+  - enabled: 1
+    path: Assets/ShortDEV/Takayuki/Scenes/ScriptTest_r_t.unity
+    guid: fb51f719d858e8548bb6e839558d230a
   - enabled: 1
     path: Assets/ShortDEV/Takayuki/Scenes/TestScene_t.unity
     guid: 6aa3fb4519f0ca44cbba9db0139d3ccd
@@ -15,6 +21,18 @@ EditorBuildSettings:
     path: Assets/ShortDEV/Takayuki/Scenes/BossScene_t.unity
     guid: f45ca78932603134cb55542a37e58771
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/materials/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/ShortDEV/ryoga/Scenes/BattleSceneTest_r.unity
+    guid: 00f24341305de4d6c9484e4b33806eed
+  - enabled: 1
+    path: Assets/ShortDEV/ryoga/Scenes/StartSceneTest_r.unity
+    guid: 6e73687458a4c47d48e0201a0f709f26
+  - enabled: 1
+    path: Assets/ShortDEV/ryoga/Scenes/FieldTest2_r.unity
+    guid: bf85d410d4dd0496a9f4c32f67140cdc
+  - enabled: 1
+    path: Assets/ShortDEV/ryoga/Scenes/GameOverTest_r.unity
+    guid: b59e16555fbed492a80935c3c9b6029c
   m_configObjects: {}

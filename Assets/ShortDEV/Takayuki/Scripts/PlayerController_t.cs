@@ -1,12 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController_t : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public static PlayerController_t instance;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // シーン遷移時にオブジェクトが破棄されないようにする
+        }
+        else
+        {
+            Destroy(gameObject); // 既にインスタンスが存在する場合は新しいインスタンスを破棄する
+        }
+    }
+
+    public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     public int health;
@@ -17,16 +28,12 @@ public class PlayerController_t : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
-            Debug.LogError("Rigidbody2D component not found.");
+            Debug.LogError("Rigidbody2D component not found on Player_t. Please attach a Rigidbody2D component.");
+            return;
         }
-        else
-        {
-            Debug.Log("Rigidbody2D component assigned.");
-        }
-
-        rb.gravityScale = 0; // 重力スケールを0に設定
-        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // 連続的な衝突検出モード
-        rb.interpolation = RigidbodyInterpolation2D.Interpolate; // 補間を有効に設定
+        rb.gravityScale = 0;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 
         transform.position = PlayerData_t.targetPosition;
         health = PlayerData_t.health;
@@ -43,15 +50,21 @@ public class PlayerController_t : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = moveInput * moveSpeed;
+        if (rb != null)
+        {
+            rb.velocity = moveInput * moveSpeed;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            rb.velocity = Vector2.zero; // 壁にぶつかったら速度を0に設定
-            Debug.Log("Collided with wall.");
+            if (rb != null)
+            {
+                rb.velocity = Vector2.zero;
+                Debug.Log("Collided with wall.");
+            }
         }
     }
 }

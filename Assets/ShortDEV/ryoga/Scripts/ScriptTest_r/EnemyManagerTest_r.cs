@@ -1,42 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO; //ファイル操作用
 
 public class EnemyManagerTest_r : MonoBehaviour
 {
-    //JSONデータ（コード貼り付け）
-    private string jsonDate=@"{
-    ""monsters"": [
-        {
-            ""name"": ""Slime"",
-            ""hp"": 20,
-            ""atk"": 3,
-            ""exp"": 5,
-            ""gold"": 1
-        },
-        {
-            ""name"": ""Goblin"",
-            ""hp"": 30,
-            ""atk"": 5,
-            ""exp"": 10,
-            ""gold"": 3
-        },
-        {
-            ""name"": ""Zombie"",
-            ""hp"": 40,
-            ""atk"": 7,
-            ""exp"": 12,
-            ""gold"": 2
-        }
-    ]
-}";
-
     private List<EnemyDataTest_r> enemies; //敵のリスト
 
     void Start()
     {
-        //JSONデータを解析して敵リストを生成
-        ParseJSONDate();
+        enemies = new List<EnemyDataTest_r>(); // 初期化する
+
+        //外部ファイルJSONデータを読み込み
+        ParseJSONFromFile();
 
         //敵リストの内容を確認
         foreach(var enemy in enemies){
@@ -44,12 +20,19 @@ public class EnemyManagerTest_r : MonoBehaviour
         }
     }
 
-    //JSONデータを解析してリストを生成
-    public void ParseJSONDate()
-    {
-        //JSONデータをMonsterListクラスに変換
-        MonsterList monsterList=JsonUtility.FromJson<MonsterList>(jsonDate);
-        enemies=monsterList.monsters;
+    //外部ファイルからJSONデータを読み込んで解析
+    public void ParseJSONFromFile()
+    {   
+        //ファイルパスを指定
+        string filePath = Application.dataPath + "/ShortDEV/ryoga/Scripts/JSONFiles/monstersList_r.json"; //""内に指定するJSONファイルの相対パスを入力（Assets以下のフォルダ名）
+        if(File.Exists(filePath)){
+            string jsonText=File.ReadAllText(filePath); //ファイル内容を読み込み
+            MonsterList monsterList=JsonUtility.FromJson<MonsterList>(jsonText); //JSONデータをMonsterListクラスに変換
+            enemies=monsterList.monsters; //モンスターリストを格納
+        }else{
+            Debug.LogError($"JSON file not found at path:{filePath}!");
+        }
+        
     }
 
     //敵リストを取得するメソッド

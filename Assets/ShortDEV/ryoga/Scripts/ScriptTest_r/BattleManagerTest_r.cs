@@ -276,6 +276,7 @@ public class BattleManagerTest_r : MonoBehaviour
 
     //シーン遷移コルーチン
     IEnumerator FadeAndTransitionToScene(string sceneName){
+        yield return new WaitForSeconds(1f); //1秒待ってから
         yield return StartCoroutine(FadeOut()); //フェードアウト開始
         SceneManager.LoadScene(sceneName);
     }

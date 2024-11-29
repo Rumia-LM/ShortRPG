@@ -2294,7 +2294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8501546769818371316, guid: 291e004c4be455d4786b8b102d246309, type: 3}
       propertyPath: m_Name
-      value: OtherGrid
+      value: BigGrid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

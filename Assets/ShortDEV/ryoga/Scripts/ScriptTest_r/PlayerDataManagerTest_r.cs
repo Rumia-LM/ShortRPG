@@ -8,9 +8,9 @@ public class PlayerDataManagerTest_r : MonoBehaviour
 {
     public static PlayerDataManagerTest_r Instance{get;private set;} //シングルトンインスタンス
 
-    public int MaxHP{get;private set;} //最大HP
-    public int CurrentHP{get;private set;} //現在のHP
-    public int ATK{get;private set;} //攻撃力
+    public int MaxHP{get;private set;}=100; //最大HP
+    public int CurrentHP{get;private set;}=100; //現在のHP
+    public int ATK{get;private set;}=20; //攻撃力
 
     private void Awake() {
         //シングルトンの初期化

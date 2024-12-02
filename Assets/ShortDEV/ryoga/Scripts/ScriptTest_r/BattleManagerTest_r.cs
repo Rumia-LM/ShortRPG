@@ -5,6 +5,7 @@ using System.Collections;
 using System;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class BattleManagerTest_r : MonoBehaviour
 {
@@ -19,10 +20,12 @@ public class BattleManagerTest_r : MonoBehaviour
     public ScrollRect BattleLogScrollRect;
     public GameObject EnemySprite;
     public Image FadeImage; //フェードアウト用の黒いイメージ
+    public EnemyDataTest_r currentEnemy; //現在の敵
 
     private SpriteRenderer enemySpriteRenderer; //敵スプライトのレンダラー
     private PlayerTest_r player;
     private EnemyTest_r enemy;
+    private EnemyManagerTest_r enemyManager; //敵管理スクリプト
     
     private bool isProcessing=false; //処理中のフラグ
     private bool isBattleOver=false; //戦闘終了のフラグ
@@ -34,8 +37,15 @@ public class BattleManagerTest_r : MonoBehaviour
         int currentHP=PlayerDataManagerTest_r.Instance.CurrentHP; //現在のHP
         player=new PlayerTest_r("Hero",maxHP,PlayerDataManagerTest_r.Instance.ATK); //ATK
         player.HP=currentHP;
-        //敵を初期化
-        enemy = new EnemyTest_r("Slime", 50, 10);
+
+        //EnemyManagerの参照を取得
+        enemyManager=FindObjectOfType<EnemyManagerTest_r>();
+
+        //ランダムな敵を選択
+        SelectRandomEnemy();
+
+        //戦闘ログに敵の名前を表示
+        Debug.Log($"A wild {currentEnemy.name} appears!");
 
         // HPバーの初期化
         PlayerHPBar.maxValue=player.MaxHP;
@@ -57,6 +67,22 @@ public class BattleManagerTest_r : MonoBehaviour
 
         // 初期ログを表示
         UpdateBattleLog("Battle Start!");
+    }
+
+    //ランダムに敵を選択
+    private void SelectRandomEnemy(){
+        if(enemyManager!=null){
+            List<EnemyDataTest_r>enemies=enemyManager.GetEnemies();
+            if(enemies.Count>0){
+                //ランダムに１体の敵を選択
+                int randomIndex=UnityEngine.Random.Range(0,enemies.Count);
+                currentEnemy=enemies[randomIndex];
+            }else{
+                Debug.Log("No enemies available in EnemyManager!");
+            }
+        }else{
+            Debug.Log("EnemyManager not found!");
+        }
     }
 
     //プレイヤー行動の開始（攻撃、回復、にげる）
@@ -276,6 +302,7 @@ public class BattleManagerTest_r : MonoBehaviour
 
     //シーン遷移コルーチン
     IEnumerator FadeAndTransitionToScene(string sceneName){
+        yield return new WaitForSeconds(1f); //1秒待ってから
         yield return StartCoroutine(FadeOut()); //フェードアウト開始
         SceneManager.LoadScene(sceneName);
     }

@@ -32,4 +32,9 @@ public class PlayerDataManagerTest_r : MonoBehaviour
     public void ResetData(){
         CurrentHP=MaxHP;
     }
+
+    public static implicit operator PlayerDataManagerTest_r(PlayerDataManagerTest_Master v)
+    {
+        throw new NotImplementedException();
+    }
 }

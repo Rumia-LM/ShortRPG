@@ -19,6 +19,7 @@ public class PlayerController_t : MonoBehaviour
 
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
+    private Animator animator; // アニメーターコンポーネントの参照
     private Vector2 moveInput;
     public int health;
     public int attack;
@@ -26,6 +27,7 @@ public class PlayerController_t : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>(); // アニメーターコンポーネントを取得
         if (rb == null)
         {
             Debug.LogError("Rigidbody2D component not found on Player_t. Please attach a Rigidbody2D component.");
@@ -46,6 +48,17 @@ public class PlayerController_t : MonoBehaviour
     {
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
+
+        // アニメーターにパラメータを設定
+        animator.SetFloat("MoveX", moveInput.x);
+        animator.SetFloat("MoveY", moveInput.y);
+
+        // 移動方向が変わった場合、アニメーションの方向を更新
+        if (moveInput != Vector2.zero)
+        {
+            animator.SetFloat("LastMoveX", moveInput.x);
+            animator.SetFloat("LastMoveY", moveInput.y);
+        }
     }
 
     void FixedUpdate()

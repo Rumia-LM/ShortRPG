@@ -20,7 +20,7 @@ public class Monster
 
 public class AreaEncounter_t : MonoBehaviour
 {
-    public string jsonFilePath = "Assets/ShortDEV/Takayuki/Scripts/area1_monsters.json"; // 各エリアごとのJSONファイル
+    public string jsonFilePath = "Assets/ShortDEV/Takayuki/Scripts/MonsterJSON/area1_monsters.json"; // 各エリアごとのJSONファイル
     private List<Monster> monsters;
     private float encounterCooldown = 2.0f; // エンカウント判定の間隔（秒）
     private float lastEncounterTime;

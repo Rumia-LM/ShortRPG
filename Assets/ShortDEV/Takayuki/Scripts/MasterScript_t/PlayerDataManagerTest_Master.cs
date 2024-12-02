@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class PlayerDataManagerTest_r : MonoBehaviour
+public class PlayerDataManagerTest_Master : MonoBehaviour
 {
-    public static PlayerDataManagerTest_r Instance{get;private set;} //シングルトンインスタンス
+    public static PlayerDataManagerTest_Master Instance{get;private set;} //シングルトンインスタンス
 
     public int MaxHP{get;private set;}=100; //最大HP
     public int CurrentHP{get;private set;}=100; //現在のHP
@@ -31,10 +31,5 @@ public class PlayerDataManagerTest_r : MonoBehaviour
     //データをリセットするメソッド(ゲームオーバー時など)
     public void ResetData(){
         CurrentHP=MaxHP;
-    }
-
-    public static implicit operator PlayerDataManagerTest_r(PlayerDataManagerTest_Master v)
-    {
-        throw new NotImplementedException();
     }
 }

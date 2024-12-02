@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c33563c6e75a415459c0990392255781
+guid: 0eb3ba0ef11abc040910d81dbf0c937c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 31
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,7 +95,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Outside_ls_A31_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24.5
+        width: 24.5
+        height: 24.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe2c65ce39d6b34d9efc7cff478e526
+      internalID: -1050310379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_ls_A31_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 24.5
+        width: 24.5
+        height: 24.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 969f5e81e10c99d468dfad22d8461524
+      internalID: 1064132024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_ls_A31_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.5
+        width: 24.5
+        height: 24.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7429d24354311845a64ae87139e61e8
+      internalID: 1724410570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outside_ls_A31_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0.5
+        width: 24.5
+        height: 24.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fd21cc6df55cda47ae57df49a16594c
+      internalID: 661638376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +190,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Outside_ls_A31_0: -1050310379
+      Outside_ls_A31_1: 1064132024
+      Outside_ls_A31_2: 1724410570
+      Outside_ls_A31_3: 661638376
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

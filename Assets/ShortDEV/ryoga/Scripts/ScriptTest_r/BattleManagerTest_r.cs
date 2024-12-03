@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System;
-using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.IO;
@@ -19,14 +18,11 @@ public class BattleManagerTest_r : MonoBehaviour
     public Slider EnemyHPBar;
     public TMP_Text BattleLogText; //テキスト表示エリア
     public ScrollRect BattleLogScrollRect;
-    public GameObject EnemySprite;
     public Image FadeImage; //フェードアウト用の黒いイメージ
     public EnemyDataTest_r currentEnemy; //現在の敵
+    public Image EnemyImage; //敵画像を表示するUI
 
-    private SpriteRenderer enemySpriteRenderer; //敵スプライトのレンダラー
     private PlayerTest_r player;
-    //private EnemyTest_r enemy;
-    private EnemyManagerTest_r enemyManager; //敵管理スクリプト
     private List<EnemyDataTest_r> enemyList;
     
     private bool isProcessing=false; //処理中のフラグ
@@ -51,11 +47,6 @@ public class BattleManagerTest_r : MonoBehaviour
 
         //戦闘ログに敵の名前を表示
         Debug.Log($"A wild {currentEnemy.name} appears!");
-
-        //敵スプライトのレンダラーを取得
-        if(EnemySprite!=null){
-            enemySpriteRenderer=EnemySprite.GetComponent<SpriteRenderer>();
-        }
 
         // ボタンに関数を登録
         AttackButton.onClick.AddListener(()=>StartPlayerAction("attack"));
@@ -110,6 +101,16 @@ public class BattleManagerTest_r : MonoBehaviour
             int randomIndex=UnityEngine.Random.Range(0,enemyList.Count);
             currentEnemy=enemyList[randomIndex];
 
+            //敵画像を読み込む
+            Sprite enemySprite=Resources.Load<Sprite>($"ryoga/Images/{currentEnemy.image}");
+            if(enemySprite!=null){
+                EnemyImage.sprite=enemySprite; //UIに画像を設定
+                EnemyImage.enabled=true; //UIを表示
+            }else{
+                Debug.LogError($"Enemy image not found:{currentEnemy.image}");
+                EnemyImage.enabled=false; //UIを非表示
+            }
+            
             //シングルトンに保存
             EnemyDataManagerTest_r.Instance.currentEnemy=currentEnemy;
             Debug.Log($"Selected Enemy:{currentEnemy.name},HP:{currentEnemy.hp},ATK:{currentEnemy.atk}");
@@ -235,7 +236,7 @@ public class BattleManagerTest_r : MonoBehaviour
         Color originalTextColor=PlayerNameAndHPText.color;
 
         int flashCount=3;
-        float shakeMagnitude=20f; //揺れの強さ
+        float shakeMagnitude=40f; //揺れの強さ
         float flashInterval=0.1f;
 
         for(int i=0;i<flashCount;i++){
@@ -263,15 +264,18 @@ public class BattleManagerTest_r : MonoBehaviour
 
     //スプライトを点滅させるコルーチン
     IEnumerator FlashEnemySprite(){
-        if(enemySpriteRenderer==null)yield break;
+        if(EnemyImage==null){
+            Debug.LogError("EnemyImage is not assigned!");
+            yield break;
+        }
 
         //点滅回数と間隔を指定
         int flashCount=3;
         float flashInterval=0.1f;
         for(int i=0;i<flashCount;i++){
-            enemySpriteRenderer.color=new Color(1f,1f,1f,0f); //透明
+            EnemyImage.color=new Color(1f,1f,1f,0f); //透明
             yield return new WaitForSeconds(flashInterval);
-            enemySpriteRenderer.color=new Color(1f,1f,1f,1f); //元に戻す
+            EnemyImage.color=new Color(1f,1f,1f,1f); //元に戻す
             yield return new WaitForSeconds(flashInterval);
         }
     }
@@ -320,8 +324,8 @@ public class BattleManagerTest_r : MonoBehaviour
 
     // 敵のスプライトとHPバーを非表示
     void HideEnemySpriteAndHPBar(){
-        if(EnemySprite!=null){
-            EnemySprite.SetActive(false); //スプライトを非表示
+        if(EnemyImage!=null){
+            EnemyImage.enabled=false; //スプライトを非表示
         }
         if(EnemyHPBar!=null){
             EnemyHPBar.gameObject.SetActive(false); //HPバーを非表示
@@ -354,7 +358,7 @@ public class BattleManagerTest_r : MonoBehaviour
     //フェードアウト処理
     IEnumerator FadeOut()
     {
-        float fadeDuration = 2.0f; // フェードアウトにかかる時間
+        float fadeDuration = 1.5f; // フェードアウトにかかる時間
         float elapsedTime = 0f;
 
         Color fadeColor = FadeImage.color;

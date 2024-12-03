@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class EnemyDataTest_r
     public int atk;
     public int exp;
     public int gold;
+    public string image; //画像名（"Slime"）
 
     //コンストラクタ（必要に応じて追加)
     public EnemyDataTest_r(string name,int hp,int atk,int exp,int gold)

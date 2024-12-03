@@ -78,7 +78,7 @@ public class BattleManagerTest_Master : MonoBehaviour
             //ダメージログ表示とHP更新、スプライト点滅を同時に行う
             yield return LogAction($"Slime took {player.ATK} damage!",()=>{
                 UpdateEnemyHP();
-                
+
                 StartCoroutine(FlashEnemySprite()); //スプライトを点滅
 
             });
@@ -267,10 +267,10 @@ public class BattleManagerTest_Master : MonoBehaviour
         //戦闘結果に応じたシーンの切り替え
         if(result=="win"||result=="escape"){
             PlayerDataManagerTest_r.Instance.UpdateHP(player.HP); //現在のHPを保存
-            StartCoroutine(FadeAndTransitionToScene("FieldTest_r")); //勝利・逃げる成功→フィールドに移行
+            StartCoroutine(FadeAndTransitionToScene("FieldTest_Master")); //勝利・逃げる成功→フィールドに移行
         }else if(result=="lose"){
             PlayerDataManagerTest_r.Instance.ResetData(); //敗北時にデータをリセット
-            StartCoroutine(FadeAndTransitionToScene("GameOverTest_r")); //敗北→GameOver画面に移行
+            StartCoroutine(FadeAndTransitionToScene("GameOverTest_Master")); //敗北→GameOver画面に移行
         }
     }
 

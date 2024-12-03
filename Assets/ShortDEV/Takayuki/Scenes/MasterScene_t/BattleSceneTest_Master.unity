@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 187393796}
   m_Layer: 0
-  m_Name: PlayerTest_r
+  m_Name: PlayerTest_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 672978046}
   - component: {fileID: 672978045}
   m_Layer: 5
-  m_Name: FadeImage_r
+  m_Name: FadeImage_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -917,7 +917,7 @@ GameObject:
   - component: {fileID: 718515897}
   - component: {fileID: 718515896}
   m_Layer: 0
-  m_Name: BattleManagerTest_r
+  m_Name: BattleManagerTest_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -945,6 +945,12 @@ MonoBehaviour:
   BattleLogScrollRect: {fileID: 2105663959}
   EnemySprite: {fileID: 1476528715}
   FadeImage: {fileID: 672978045}
+  currentEnemy:
+    name: 
+    hp: 0
+    atk: 0
+    exp: 0
+    gold: 0
 --- !u!4 &718515897
 Transform:
   m_ObjectHideFlags: 0
@@ -1009,7 +1015,7 @@ GameObject:
   - component: {fileID: 837782688}
   - component: {fileID: 837782687}
   m_Layer: 5
-  m_Name: HealButton_r
+  m_Name: HealButton_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1129,7 +1135,7 @@ GameObject:
   - component: {fileID: 939843758}
   - component: {fileID: 939843757}
   m_Layer: 5
-  m_Name: PlayerNameAndHPText_r
+  m_Name: PlayerNameAndHPText_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1434,7 +1440,7 @@ GameObject:
   - component: {fileID: 1070584472}
   - component: {fileID: 1070584471}
   m_Layer: 5
-  m_Name: BSCanvas_r
+  m_Name: BSCanvas_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1752,7 +1758,7 @@ GameObject:
   - component: {fileID: 1194767031}
   - component: {fileID: 1194767030}
   m_Layer: 5
-  m_Name: AttackButton_r
+  m_Name: AttackButton_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2119,7 +2125,7 @@ GameObject:
   - component: {fileID: 1476528717}
   - component: {fileID: 1476528716}
   m_Layer: 0
-  m_Name: EnemyTest_r
+  m_Name: EnemyTest_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2203,7 +2209,7 @@ GameObject:
   - component: {fileID: 1479601831}
   - component: {fileID: 1479601832}
   m_Layer: 5
-  m_Name: PlayerHpBar_r
+  m_Name: PlayerHpBar_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2331,7 +2337,7 @@ GameObject:
   - component: {fileID: 1585746808}
   - component: {fileID: 1585746807}
   m_Layer: 5
-  m_Name: EscapeButton_r
+  m_Name: EscapeButton_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2637,7 +2643,7 @@ GameObject:
   - component: {fileID: 1839132031}
   - component: {fileID: 1839132030}
   m_Layer: 0
-  m_Name: BSEventSystem_r
+  m_Name: BSEventSystem_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2704,7 +2710,7 @@ GameObject:
   - component: {fileID: 1867275236}
   - component: {fileID: 1867275237}
   m_Layer: 5
-  m_Name: EnemyHpBar_r
+  m_Name: EnemyHpBar_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2870,7 +2876,7 @@ GameObject:
   - component: {fileID: 2061645101}
   - component: {fileID: 2061645100}
   m_Layer: 0
-  m_Name: BSMain Camera_r
+  m_Name: BSMain Camera_Master
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2963,7 +2969,7 @@ GameObject:
   - component: {fileID: 2105663960}
   - component: {fileID: 2105663959}
   m_Layer: 5
-  m_Name: Scroll View_r
+  m_Name: Scroll View_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

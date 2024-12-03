@@ -3,8 +3,9 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System;
-using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.IO;
 
 public class BattleManagerTest_r : MonoBehaviour
 {
@@ -15,40 +16,37 @@ public class BattleManagerTest_r : MonoBehaviour
     public Slider PlayerHPBar;
     public TMP_Text PlayerNameAndHPText;
     public Slider EnemyHPBar;
-    public TMP_Text BattleLogText;
+    public TMP_Text BattleLogText; //テキスト表示エリア
     public ScrollRect BattleLogScrollRect;
-    public GameObject EnemySprite;
     public Image FadeImage; //フェードアウト用の黒いイメージ
+    public EnemyDataTest_r currentEnemy; //現在の敵
+    public Image EnemyImage; //敵画像を表示するUI
 
-    private SpriteRenderer enemySpriteRenderer; //敵スプライトのレンダラー
     private PlayerTest_r player;
-    private EnemyTest_r enemy;
+    private List<EnemyDataTest_r> enemyList;
     
     private bool isProcessing=false; //処理中のフラグ
     private bool isBattleOver=false; //戦闘終了のフラグ
 
     void Start()
     {
-        //PlayerDataManagerTest_rからプレイヤー情報を取得
-        int maxHP=PlayerDataManagerTest_r.Instance.MaxHP; //最大HP
-        int currentHP=PlayerDataManagerTest_r.Instance.CurrentHP; //現在のHP
-        player=new PlayerTest_r("Hero",maxHP,PlayerDataManagerTest_r.Instance.ATK); //ATK
-        player.HP=currentHP;
-        //敵を初期化
-        enemy = new EnemyTest_r("Slime", 50, 10);
+        //敵リストを初期化（JSONから読み込む）
+        LoadEnemiesFromJSON();
 
-        // HPバーの初期化
-        PlayerHPBar.maxValue=player.MaxHP;
-        PlayerHPBar.value=player.HP;
-        UpdatePlayerNameAndHPText();
+        //ランダムに敵を選択
+        SelectRandomEnemy();
 
-        EnemyHPBar.maxValue = enemy.MaxHP;
-        EnemyHPBar.value = enemy.HP;
+        //シングルトンから敵データを取得
+        currentEnemy=EnemyDataManagerTest_r.Instance.currentEnemy;
 
-        //敵スプライトのレンダラーを取得
-        if(EnemySprite!=null){
-            enemySpriteRenderer=EnemySprite.GetComponent<SpriteRenderer>();
-        }
+        //プレイヤーと敵を初期化
+        InitializaPlayer();
+              
+        //HPバーの初期化
+        InitializeHPBars();
+
+        //戦闘ログに敵の名前を表示
+        Debug.Log($"A wild {currentEnemy.name} appears!");
 
         // ボタンに関数を登録
         AttackButton.onClick.AddListener(()=>StartPlayerAction("attack"));
@@ -56,7 +54,69 @@ public class BattleManagerTest_r : MonoBehaviour
         EscapeButton.onClick.AddListener(()=>StartPlayerAction("escape"));
 
         // 初期ログを表示
-        UpdateBattleLog("Battle Start!");
+        StartCoroutine(LogAction($"{currentEnemy.name} has appeared!"));
+    }
+
+    //プレイヤーの初期化
+    private void InitializaPlayer(){
+        player=new PlayerTest_r("Hero",PlayerDataManagerTest_r.Instance.MaxHP,PlayerDataManagerTest_r.Instance.ATK);
+        player.HP=PlayerDataManagerTest_r.Instance.CurrentHP;
+    }
+
+    //HPバーを初期化
+    void InitializeHPBars(){
+        if(PlayerHPBar!=null){
+            PlayerHPBar.maxValue=player.MaxHP;
+            PlayerHPBar.value=player.HP;
+            UpdatePlayerNameAndHPText();
+        }
+        if(EnemyHPBar!=null){
+            EnemyHPBar.maxValue=currentEnemy.hp;
+            EnemyHPBar.value=currentEnemy.hp;
+        }else{
+            Debug.LogError("EnemyHPBar is not assigned in the Inspector!");
+        }
+    }
+
+    //JSONファイルから敵リストを読み込む
+    private void LoadEnemiesFromJSON(){
+        string filePath=Application.dataPath+"/ShortDEV/ryoga/Scripts/JSONFiles/monstersList_r.json";
+        if(File.Exists(filePath)){
+            string jsonText=File.ReadAllText(filePath);
+            MonsterList monsterList=JsonUtility.FromJson<MonsterList>(jsonText);
+            
+            if(monsterList!=null&&monsterList.monsters!=null){
+                enemyList=monsterList.monsters;
+                Debug.Log($"Loaded {enemyList.Count} enemies from JSON!");
+            }else{
+                Debug.LogError("Failed to parse JSON or no enemies found");
+            }
+        }else{
+            Debug.LogError($"JSON file not found at path:{filePath}");
+        }
+    }
+    //ランダムに敵を選択
+    private void SelectRandomEnemy(){
+        if(enemyList!=null&&enemyList.Count>0){
+            int randomIndex=UnityEngine.Random.Range(0,enemyList.Count);
+            currentEnemy=enemyList[randomIndex];
+
+            //敵画像を読み込む
+            Sprite enemySprite=Resources.Load<Sprite>($"ryoga/Images/{currentEnemy.image}");
+            if(enemySprite!=null){
+                EnemyImage.sprite=enemySprite; //UIに画像を設定
+                EnemyImage.enabled=true; //UIを表示
+            }else{
+                Debug.LogError($"Enemy image not found:{currentEnemy.image}");
+                EnemyImage.enabled=false; //UIを非表示
+            }
+            
+            //シングルトンに保存
+            EnemyDataManagerTest_r.Instance.currentEnemy=currentEnemy;
+            Debug.Log($"Selected Enemy:{currentEnemy.name},HP:{currentEnemy.hp},ATK:{currentEnemy.atk}");
+        }else{
+            Debug.LogError("No enemies available to select!");
+        }
     }
 
     //プレイヤー行動の開始（攻撃、回復、にげる）
@@ -73,18 +133,18 @@ public class BattleManagerTest_r : MonoBehaviour
         // 攻撃コマンド
         if(action=="attack"){
             yield return LogAction("Hero attacked!");
-            enemy.TakeDamage(player.ATK);
+            currentEnemy.hp-=player.ATK;
 
             //ダメージログ表示とHP更新、スプライト点滅を同時に行う
-            yield return LogAction($"Slime took {player.ATK} damage!",()=>{
+            yield return LogAction($"{currentEnemy.name} took {player.ATK} damage!",()=>{
                 UpdateEnemyHP();
                 
                 StartCoroutine(FlashEnemySprite()); //スプライトを点滅
                 
             });
 
-            if(enemy.IsDead()){
-                yield return LogAction("Slime defeated!");
+            if(currentEnemy.hp<=0){
+                yield return LogAction($"{currentEnemy.name} defeated!");
                 HideEnemySpriteAndHPBar(); //敵スプライトとHPバーを非表示
                 EndBattle("win"); //勝利処理
             }else{
@@ -133,12 +193,12 @@ public class BattleManagerTest_r : MonoBehaviour
     // 敵のターン(コルーチン)
     IEnumerator EnemyTurn()
     {   
-        yield return LogAction("Slime attacked!");
-        player.TakeDamage(enemy.ATK);
+        yield return LogAction($"{currentEnemy.name} attacked!");
+        player.TakeDamage(currentEnemy.atk);
         PlayerDataManagerTest_r.Instance.UpdateHP(player.HP); //HPを保存
 
         //ダメージログ表示とHP更新を同時に行う
-        yield return LogAction($"Hero took {enemy.ATK} damage!",()=>{
+        yield return LogAction($"Hero took {currentEnemy.atk} damage!",()=>{
             UpdatePlayerHP();
             StartCoroutine(ShakeAndFlashPlayerUI()); //プレイヤーUIの揺れ＆点滅
         });
@@ -151,11 +211,21 @@ public class BattleManagerTest_r : MonoBehaviour
     }
 
     //ログを1アクションずつ表示(コルーチン)
-    IEnumerator LogAction(String message,System.Action onComplete=null){
+    private IEnumerator LogAction(String message,System.Action onComplete=null){
         ClearBattleLog(); //ログを削除
+        yield return StartCoroutine(DisplayText(message)); //１文字づつ表示
         UpdateBattleLog(message); //新しいログを表示
         onComplete?.Invoke(); //完了時に指定された処理を実行
         yield return new WaitForSeconds(1.5f); //1.5秒間隔で次の処理へ進む
+    }
+
+    //テキストを１文字づつ表示するコルーチン
+    private IEnumerator DisplayText(string message){
+        BattleLogText.text=""; //表示をクリア
+        foreach(char c in message){
+            BattleLogText.text+=c; //１文字追加
+            yield return new WaitForSeconds(0.05f); //一定時間待つ
+        }
     }
 
     //プレイヤーUIを揺らして点滅させるコルーチン
@@ -166,7 +236,7 @@ public class BattleManagerTest_r : MonoBehaviour
         Color originalTextColor=PlayerNameAndHPText.color;
 
         int flashCount=3;
-        float shakeMagnitude=20f; //揺れの強さ
+        float shakeMagnitude=40f; //揺れの強さ
         float flashInterval=0.1f;
 
         for(int i=0;i<flashCount;i++){
@@ -194,15 +264,18 @@ public class BattleManagerTest_r : MonoBehaviour
 
     //スプライトを点滅させるコルーチン
     IEnumerator FlashEnemySprite(){
-        if(enemySpriteRenderer==null)yield break;
+        if(EnemyImage==null){
+            Debug.LogError("EnemyImage is not assigned!");
+            yield break;
+        }
 
         //点滅回数と間隔を指定
         int flashCount=3;
         float flashInterval=0.1f;
         for(int i=0;i<flashCount;i++){
-            enemySpriteRenderer.color=new Color(1f,1f,1f,0f); //透明
+            EnemyImage.color=new Color(1f,1f,1f,0f); //透明
             yield return new WaitForSeconds(flashInterval);
-            enemySpriteRenderer.color=new Color(1f,1f,1f,1f); //元に戻す
+            EnemyImage.color=new Color(1f,1f,1f,1f); //元に戻す
             yield return new WaitForSeconds(flashInterval);
         }
     }
@@ -230,13 +303,14 @@ public class BattleManagerTest_r : MonoBehaviour
         EscapeButton.interactable=state;
     }
 
-    // プレイヤーのHPバーと名前+HPを更新
+    // プレイヤーのHPバーを更新
     void UpdatePlayerHP()
     {
         PlayerHPBar.value = player.HP;
         UpdatePlayerNameAndHPText();
     }
 
+    //「名前+HP」のテキストを更新
     void UpdatePlayerNameAndHPText()
     {
         PlayerNameAndHPText.text = $"{player.Name}\nHP:{player.HP}/{player.MaxHP}"; // 例: "Hero  HP:50/100"
@@ -245,13 +319,13 @@ public class BattleManagerTest_r : MonoBehaviour
     // 敵HPバー更新
     void UpdateEnemyHP()
     {
-        EnemyHPBar.value = enemy.HP;
+        EnemyHPBar.value = currentEnemy.hp;
     }
 
     // 敵のスプライトとHPバーを非表示
     void HideEnemySpriteAndHPBar(){
-        if(EnemySprite!=null){
-            EnemySprite.SetActive(false); //スプライトを非表示
+        if(EnemyImage!=null){
+            EnemyImage.enabled=false; //スプライトを非表示
         }
         if(EnemyHPBar!=null){
             EnemyHPBar.gameObject.SetActive(false); //HPバーを非表示
@@ -284,7 +358,7 @@ public class BattleManagerTest_r : MonoBehaviour
     //フェードアウト処理
     IEnumerator FadeOut()
     {
-        float fadeDuration = 2.0f; // フェードアウトにかかる時間
+        float fadeDuration = 1.5f; // フェードアウトにかかる時間
         float elapsedTime = 0f;
 
         Color fadeColor = FadeImage.color;

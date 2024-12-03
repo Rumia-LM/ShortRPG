@@ -164,7 +164,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonsterEncountTest2_t
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4032883182994065795, guid: 445f2d774e5d1024baf851b7ce01679e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -287,7 +288,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonsterEncountTest1_t
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3834480825053831335, guid: 4d07538bf6d955842b334d602207ee88, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

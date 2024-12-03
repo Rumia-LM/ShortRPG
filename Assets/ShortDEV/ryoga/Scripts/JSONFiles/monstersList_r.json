@@ -1,0 +1,28 @@
+{
+    "monsters": [
+        {
+            "name": "Slime",
+            "hp": 20,
+            "atk": 3,
+            "exp": 5,
+            "gold": 1,
+            "image":"Slime"
+        },
+        {
+            "name": "Goblin",
+            "hp": 30,
+            "atk": 5,
+            "exp": 10,
+            "gold": 3,
+            "image":"Goblin"
+        },
+        {
+            "name": "Zombie",
+            "hp": 40,
+            "atk": 7,
+            "exp": 12,
+            "gold": 2,
+            "image":"Zombie"
+        }
+    ]
+}

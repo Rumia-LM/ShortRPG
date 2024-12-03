@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*, com.short_rpg.model.*" %>
 <%
-    Player player = (Player)request.getAttribute("player");
+    List<Player> playerList = (List<Player>) request.getAttribute("playerList");
 %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -28,16 +28,35 @@
                         <th scope="col">経験値</th>
                         <th scope="col">所持金</th>
                         <th scope="col">スコア</th>
+                        <th scope="col">プレイ回数</th>
+                        <th scope="col">削除ボタン</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <%
+                        if (playerList != null) {
+                            int rank = 1;
+                            for (Player player : playerList) {
+                    %>
                     <tr>
-                        <th scope="row"></th>
+                        <th scope="row"><%= rank++ %></th>
                         <td><%= player.getName() %></td>
                         <td><%= player.getExperience() %></td>
                         <td><%= player.getMoney() %></td>
                         <td><%= player.getScore() %></td>
+                        <td><%= player.getPlay_count() %></td>
+                        <!-- 削除ボタン -->
+                        <td>
+                            <form action="DeletePlayerServlet" method="post" class="m-0">
+                                <input type="hidden" name="playerName" value="<%= player.getName() %>">
+                                <button type="submit" class="btn btn-danger btn-sm">削除</button>
+                            </form>
+                        </td>
                     </tr>
+                    <%
+                            }
+                        }
+                    %>
                 </tbody>
             </table>
         </div>

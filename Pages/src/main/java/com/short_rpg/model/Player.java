@@ -6,15 +6,17 @@ public class Player {
     private int experience;
     private int money;
     private int score;
+    private int play_count;
     
     public Player() {} //空のコンストラクタ・オーバーロード
 
-    public Player(int id, String name, int experience, int money, int score) {
+    public Player(int id, String name, int experience, int money, int score, int play_count) {
         this.id = id;
         this.name = name;
         this.experience = experience;
         this.money = money;
         this.score = score;
+        this.play_count = play_count;
     }
 
 	public int getId() {
@@ -56,6 +58,13 @@ public class Player {
 	public void setScore(int score) {
 		this.score = score;
 	}
-    
-    
+
+	public int getPlay_count() {
+		return play_count;
+	}
+
+	public void setPlay_count(int play_count) {
+		this.play_count = play_count;
+	}
+       
 }

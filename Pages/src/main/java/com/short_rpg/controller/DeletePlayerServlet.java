@@ -12,19 +12,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/ShortRpgRankingServlet")
-public class ShortRpgRankingServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+@WebServlet("/DeletePlayerServlet")
+public class DeletePlayerServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ShortRpgDAO dao = new ShortRpgDAO();
-
-        // DAOから全プレイヤーリストを取得
-        List<Player> players = dao.getAllPlayerSortedByScore();
-
-        // JSPにリストを渡す
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String playerName = request.getParameter("playerName");
+		ShortRpgDAO dao = new ShortRpgDAO();
+		dao.deletePlayer(playerName);
+		List<Player> players = dao.getAllPlayerSortedByScore();
         request.setAttribute("playerList", players);
         request.getRequestDispatcher("/WEB-INF/view/ShortRpgRanking.jsp").forward(request, response);
-    }
+	}
 }

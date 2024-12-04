@@ -7,11 +7,21 @@ public class EnemyEncounterManager : MonoBehaviour
     public Transform fieldCenter; // フィールドの中心
     public float encounterRadius = 10f; // 戦闘が発生する範囲の半径
     public float encounterTime = 5f; // 戦闘に移行するまでの待機時間（秒）
+    public Transform targetObject; //ターゲットのTransform
 
     private float timeInRange = 0f; // 指定範囲内に滞在している時間
 
     void Update()
-    {
+    {   
+        //Transformが破棄されていないか確認
+        if (transform == null){ 
+            Debug.LogWarning("Transform is destroyed. Skipping Update.");
+            return; // 処理をスキップ
+        }
+
+        //ターゲットの位置に向かう処理
+        transform.position = Vector3.Lerp(transform.position,targetObject.position,Time.deltaTime);
+        
         // プレイヤーが範囲内にいるか確認
         float distance = Vector3.Distance(player.position, fieldCenter.position);
         if (distance <= encounterRadius)
@@ -36,10 +46,10 @@ public class EnemyEncounterManager : MonoBehaviour
         SceneManager.LoadScene("BattleSceneTest_r"); // 戦闘シーンに移行
     }
 
-    private void OnDrawGizmosSelected()
+    /*private void OnDrawGizmosSelected()
     {
         // フィールド範囲を視覚的に表示するためのGizmo
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(fieldCenter.position, encounterRadius);
-    }
+    }*/
 }

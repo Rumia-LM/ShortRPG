@@ -1,21 +1,37 @@
 using UnityEngine;
 
-public class CharacterRaycast2D_t : MonoBehaviour
+public class PlayerRaycast : MonoBehaviour
 {
-    public float raycastDistance = 10f; // レイの距離
-    public LayerMask raycastLayerMask; // レイが当たるレイヤー
+    public float rayDistance = 10f; // レイの飛距離
+    public LayerMask hitLayers; // レイが衝突を検出するレイヤー
 
     void Update()
     {
-        // レイをキャラクターの右方向に飛ばす（2Dではforwardではなくrightやupを使う）
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, raycastDistance, raycastLayerMask);
-        if (hit.collider != null)
+        // プレイヤーの進行方向にレイキャストを飛ばす
+        if (Input.GetKey(KeyCode.X)) // 前進している時にレイキャストを飛ばす
         {
-            // レイがオブジェクトに当たった場合の処理
-            Debug.Log("Hit object: " + hit.collider.name);
-        }
+            RaycastHit hit;
+            Vector3 rayOrigin = transform.position + Vector3.up * 1.5f; // キャラクターの中心位置からレイキャストを飛ばす
 
-        // レイを視覚的に確認するためのデバッグライン
-        Debug.DrawRay(transform.position, transform.right * raycastDistance, Color.red);
+            Debug.DrawRay(rayOrigin, transform.forward * rayDistance, Color.red); // デバッグ用にレイキャストを視覚化
+
+            if (Physics.Raycast(rayOrigin, transform.forward, out hit, rayDistance, hitLayers))
+            {
+                Debug.Log($"Hit {hit.collider.gameObject.name} at distance {hit.distance}");
+                // ヒットしたオブジェクトに対して何かアクションを起こしたい場合は、ここにコードを追加します
+            }
+            else
+            {
+                Debug.Log("No hit detected.");
+            }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        // シーンビューでレイキャストを視覚化します（デバッグ用）
+        Gizmos.color = Color.red;
+        Vector3 rayOrigin = transform.position + Vector3.up * 1.5f;
+        Gizmos.DrawRay(rayOrigin, transform.forward * rayDistance);
     }
 }

@@ -528,7 +528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 855840937}
-  - component: {fileID: 855840936}
+  - component: {fileID: 855840938}
   m_Layer: 0
   m_Name: PlayerDataManagerTest_t_master
   m_TagString: Untagged
@@ -536,18 +536,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &855840936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855840935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d564f05c1ea064db9adce5381347eb85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &855840937
 Transform:
   m_ObjectHideFlags: 0
@@ -563,6 +551,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &855840938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855840935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25974a1d6e024d4886ba9ad76c2d918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &918870209
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 918870209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b29021c48f0a4dbd829898be80e23b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 58e00e68c395ab84c88b575f309f3a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerStatusText: {fileID: 1928237440}
@@ -2956,7 +2956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4388928819863376291, guid: 2b84a06582e2c8e4191135c0d6d5a2e1, type: 3}
       propertyPath: m_Name
-      value: TileMap_r
+      value: TileMap_t_master
       objectReference: {fileID: 0}
     - target: {fileID: 7158354951344416826, guid: 2b84a06582e2c8e4191135c0d6d5a2e1, type: 3}
       propertyPath: m_Materials.Array.data[0]

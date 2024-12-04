@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDataManagerTest_Master : MonoBehaviour
 {
     public static EnemyDataManagerTest_Master Instance{get;private set;}
-    public EnemyDataTest_r currentEnemy; //敵データを保持する変数
+    public EnemyDataTest_Master currentEnemy; //敵データを保持する変数
 
     private void Awake() {
         if(Instance==null){

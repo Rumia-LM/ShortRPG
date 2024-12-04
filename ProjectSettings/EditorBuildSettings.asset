@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/ShortDEV/Takayuki/Scenes/MasterScene_t/BattleSceneTest_Master.unity
     guid: aed35c7fe55134747b5ad779ef19a288
   - enabled: 1
+    path: Assets/ShortDEV/Takayuki/Scenes/MasterScene_t/FieldTest2_Master.unity
+    guid: a35eefa8eb3822842b8be8637cd54302
+  - enabled: 1
     path: Assets/materials/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1

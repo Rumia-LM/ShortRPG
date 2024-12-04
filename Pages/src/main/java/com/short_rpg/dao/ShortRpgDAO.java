@@ -58,10 +58,30 @@ public class ShortRpgDAO {
     }
 	
 	// プレイヤー名を指定して一件更新
-	public void updatePlayer(String name) {
-		
-	}
-	
+    public boolean updatePlayer(Player player) {
+        String sql = """
+        			UPDATE player_scores
+        			SET experience = ?,
+        				money = ?,
+        				score = ?,
+        				play_count = ?
+        				
+        			WHERE player_name = ?
+        			""";
+        try (Connection db = new ShortRpgDataSource().getConnection();
+             PreparedStatement ps = db.prepareStatement(sql)) {
+
+            ps.setInt(1, player.getExperience());
+            ps.setInt(2, player.getMoney());
+            ps.setInt(3, player.getScore());
+            ps.setInt(4, player.getPlay_count());
+            ps.setString(5, player.getName());
+            return ps.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 	
 	// プレイヤー名を指定して一件削除
 	public void deletePlayer(String name){

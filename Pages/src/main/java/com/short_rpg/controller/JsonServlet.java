@@ -2,7 +2,6 @@ package com.short_rpg.controller;
 
 import java.io.IOException;
 
-import com.short_rpg.dao.ShortRpgDAO;
 import com.short_rpg.logic.ShortRpgLogic;
 import com.short_rpg.model.Player;
 
@@ -31,8 +30,11 @@ public class JsonServlet extends HttpServlet {
         }
         
         if(player!=null) {
-        	ShortRpgDAO shortRpgDAO = new ShortRpgDAO();
-        	shortRpgDAO.insertPlayer(player);
+        	if(logic.nameCheck(player)) {
+        		System.out.println("すでに存在するプレイヤーのデータを更新しました");
+        	}else {
+        		System.out.println("プレイヤーを新しくデータベースに登録しました");
+        	}
         }
     }
 }

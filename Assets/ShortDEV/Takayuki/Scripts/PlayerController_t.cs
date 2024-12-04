@@ -83,6 +83,10 @@ public class PlayerController_t : MonoBehaviour
             Debug.DrawRay (ray.origin, ray.direction * 1.5f, Color.green, 1f);
             if(hit.collider != null){
                 Debug.Log("Raycast has hit the object"+hit.collider.gameObject);
+                NonPlayerCharacter npc = hit.collider.GetComponent<NonPlayerCharacter>();
+                if(npc != null){
+                    npc.DisplayDialog();
+                }
             }
         }
     }

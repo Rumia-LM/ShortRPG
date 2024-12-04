@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Npc : MonoBehaviour
 {
     public float displayTime = 4f;
@@ -12,6 +13,7 @@ public class Npc : MonoBehaviour
     {
         //最初の子要素を取得
         dialogBox=transform.GetChild(0).gameObject;
+    
         dialogBox.SetActive(false);
         timerDisplay = -1f;
     }
@@ -26,7 +28,7 @@ public class Npc : MonoBehaviour
         }
        }
     }
-    public void DisplayDialog(){
+    public void DisplayDialog(string message){
         timerDisplay = displayTime;
         dialogBox.SetActive(true);
     }

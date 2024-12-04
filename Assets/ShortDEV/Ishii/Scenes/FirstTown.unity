@@ -161,7 +161,6 @@ Transform:
   - {fileID: 137014182}
   - {fileID: 1066534333}
   - {fileID: 1647896021}
-  - {fileID: 807203132}
   - {fileID: 981684655}
   - {fileID: 905594745}
   m_Father: {fileID: 0}
@@ -240,11 +239,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!4 &807203132 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7052437446974988463, guid: b1a74764a6bbf0b408a5c160f4e06ab5, type: 3}
-  m_PrefabInstance: {fileID: 7647566820005484642}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &861893653
 GameObject:
   m_ObjectHideFlags: 0
@@ -8401,7 +8395,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 385440193}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4405478524785525380, guid: b1a74764a6bbf0b408a5c160f4e06ab5, type: 3}
       propertyPath: m_Name
@@ -8545,3 +8539,4 @@ SceneRoots:
   - {fileID: 5938183428053860371}
   - {fileID: 385440193}
   - {fileID: 7016317450025500252}
+  - {fileID: 7647566820005484642}

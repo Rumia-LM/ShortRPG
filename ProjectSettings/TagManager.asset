@@ -48,3 +48,6 @@ TagManager:
   - name: Character
     uniqueID: 2549847151
     locked: 0
+  - name: Window
+    uniqueID: 1147917445
+    locked: 0

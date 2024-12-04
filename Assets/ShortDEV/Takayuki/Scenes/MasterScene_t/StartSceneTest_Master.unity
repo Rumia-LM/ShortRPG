@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 981049029}
   - component: {fileID: 981049028}
   m_Layer: 5
-  m_Name: GameStartText_r
+  m_Name: GameStartText_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 993457584}
   - component: {fileID: 993457583}
   m_Layer: 0
-  m_Name: SSMain Camera_r
+  m_Name: SSMain Camera_Master
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 1316750714}
   - component: {fileID: 1316750717}
   m_Layer: 5
-  m_Name: GameStartButton_r
+  m_Name: GameStartButton_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 1359758095}
   - component: {fileID: 1359758094}
   m_Layer: 5
-  m_Name: TitleText_r
+  m_Name: TitleText_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 1622140941}
   - component: {fileID: 1622140940}
   m_Layer: 0
-  m_Name: SSEventSystem_r
+  m_Name: SSEventSystem_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 1702493879}
   - component: {fileID: 1702493878}
   m_Layer: 5
-  m_Name: SSCanvas_r
+  m_Name: SSCanvas_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 2143108635}
   - component: {fileID: 2143108634}
   m_Layer: 0
-  m_Name: StartSceneManagerTest_r
+  m_Name: StartSceneManagerTest_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

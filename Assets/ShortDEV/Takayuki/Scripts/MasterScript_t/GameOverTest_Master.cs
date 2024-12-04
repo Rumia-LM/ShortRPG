@@ -23,7 +23,7 @@ public class GameOverTest_Master : MonoBehaviour
 
     public void GoToStartScene()
     {
-        SceneManager.LoadScene("StartSceneTest_r"); //スタート画面へ移動
+        SceneManager.LoadScene("StartSceneTest_Master"); //スタート画面へ移動
     }
 
 }

@@ -16,7 +16,9 @@ public class PlayerDataManagerTest_Master : MonoBehaviour
         //シングルトンの初期化
         if(Instance==null){
             Instance=this;
+
             DontDestroyOnLoad(gameObject); //シーン切り替え時に破棄されない
+            Debug.Log("PlayerDataManagerTest_Master instance initialized");
         }else{
             Destroy(gameObject); //重複するインスタンスを破棄する
         }

@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 338361279}
   - component: {fileID: 338361278}
   m_Layer: 5
-  m_Name: FCanvas_r
+  m_Name: FCanvas_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 416624004}
   - component: {fileID: 416624003}
   m_Layer: 0
-  m_Name: FEventSystem_r
+  m_Name: FEventSystem_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 511736698}
   - component: {fileID: 511736697}
   m_Layer: 0
-  m_Name: FMain Camera_r
+  m_Name: FMain Camera_Master
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 553676086}
   - component: {fileID: 553676085}
   m_Layer: 5
-  m_Name: FieldText_r
+  m_Name: FieldText_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

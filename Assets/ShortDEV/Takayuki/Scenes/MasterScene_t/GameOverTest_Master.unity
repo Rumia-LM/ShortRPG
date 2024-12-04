@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 385768371}
   - component: {fileID: 385768370}
   m_Layer: 0
-  m_Name: GOMain Camera_r
+  m_Name: GOMain Camera_Master
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 515526386}
   - component: {fileID: 515526385}
   m_Layer: 5
-  m_Name: ToStartButton_r
+  m_Name: ToStartButton_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 583638289}
   - component: {fileID: 583638288}
   m_Layer: 0
-  m_Name: GameOverManagerTest_r
+  m_Name: GameOverManagerTest_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 778946498}
   - component: {fileID: 778946497}
   m_Layer: 5
-  m_Name: GOCanvas_r
+  m_Name: GOCanvas_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 1162244098}
   - component: {fileID: 1162244097}
   m_Layer: 0
-  m_Name: GOEventSystem_r
+  m_Name: GOEventSystem_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 1394221925}
   - component: {fileID: 1394221924}
   m_Layer: 5
-  m_Name: ToStartText_r
+  m_Name: ToStartText_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 1745546060}
   - component: {fileID: 1745546059}
   m_Layer: 5
-  m_Name: GameOverText_r
+  m_Name: GameOverText_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

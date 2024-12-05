@@ -27,11 +27,8 @@ public class PlayerController_t : MonoBehaviour
     private Vector2 lookDirection = new Vector2(1f, 0); // RubyControllerから追加
     public int health;
     public int attack;
-<<<<<<< HEAD
+    
     public GameObject prefab; // RubyControllerから追加
-=======
-    Vector2 lookDirection = new Vector2(1f,0);
->>>>>>> Rumia/master
 
     void Start()
     {

@@ -493,7 +493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7255781562985003144, guid: 7f88fabbfac9c7746a7546029fe3b96a, type: 3}
       propertyPath: m_Name
-      value: kirito_f
+      value: kirito_f_I
       objectReference: {fileID: 0}
     - target: {fileID: 7255781562985003144, guid: 7f88fabbfac9c7746a7546029fe3b96a, type: 3}
       propertyPath: m_TagString
@@ -604,6 +604,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6544582145197753365, guid: 2f87c829f852f0a498178fd4bf32c934, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd8aa91f813dcd1479e0ad170eee08bb, type: 3}
     - target: {fileID: 7015837797130381161, guid: 2f87c829f852f0a498178fd4bf32c934, type: 3}
       propertyPath: m_IsActive
       value: 0

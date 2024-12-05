@@ -5,8 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+<<<<<<< HEAD
   - Rever
   - Bridge
+=======
+  - NPC
+>>>>>>> Rumia/master
   layers:
   - Default
   - TransparentFX
@@ -14,8 +18,13 @@ TagManager:
   - 
   - Water
   - UI
+<<<<<<< HEAD
   - ReverLayer
   - BridgeLayer
+=======
+  - NPC
+  - 
+>>>>>>> Rumia/master
   - 
   - 
   - 

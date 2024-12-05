@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NonPlayerCharacter_I : MonoBehaviour
+public class NonPlayerCharacter : MonoBehaviour
 {
     public float displayTime = 4f;
     GameObject dialogBox;

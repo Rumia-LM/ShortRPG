@@ -8,6 +8,6 @@ public class JsonSender_m : MonoBehaviour
     void Start()
     {
         httpClient=FindObjectOfType<HttpClient_m>();
-        httpClient.SendJsonData("{\"player_name\":\"test101\",\"experience\":400, \"money\":200}");
+        httpClient.SendJsonData("{\"player_name\":\"test005\",\"experience\":200, \"money\":200}");
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8509348247995744925}
   - component: {fileID: 4946115478123118397}
   - component: {fileID: 208508876876225497}
+  - component: {fileID: 5326408776217728443}
   m_Layer: 0
   m_Name: Castle_Master
   m_TagString: Untagged
@@ -130,3 +131,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.93, y: 0.93}
   m_EdgeRadius: 0
+--- !u!114 &5326408776217728443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516183602835729732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef21e9fcae836f40af3e368b045127b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Assets/ShortDEV/Takayuki/Scenes/MasterScene_t/SecondCastle_Master.unity
+  targetPosition: {x: 0, y: 0, z: 0}

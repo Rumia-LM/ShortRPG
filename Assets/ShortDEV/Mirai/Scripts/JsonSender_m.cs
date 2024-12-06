@@ -1,13 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JsonSender_m : MonoBehaviour
 {
+    public string playerName="";
+    public int money=100;
+    public int experience=100;
     private HttpClient_m httpClient;
     void Start()
     {
         httpClient=FindObjectOfType<HttpClient_m>();
         httpClient.SendJsonData("{\"player_name\":\"test005\",\"experience\":200, \"money\":200}");
+    }
+    
+
+        public string SaveToString()
+    {
+        return JsonUtility.ToJson(this);
     }
 }

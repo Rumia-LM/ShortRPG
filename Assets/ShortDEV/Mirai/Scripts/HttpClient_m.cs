@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class HttpClient_m : MonoBehaviour
 {
-    const string serverUrl = "http://localhost:8080/Pages/JsonServlet";
+    const string serverUrl = "http://192.168.2.120:8080/Pages/JsonServlet";
 
     public void SendJsonData(string jsonData)
     {

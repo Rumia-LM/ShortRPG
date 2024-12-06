@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class JsonSender_m : MonoBehaviour
 {
-    public string playerName="";
-    public int money=100;
-    public int experience=100;
+    public string player_name;
+    public int experience;
+    public int money;
     private HttpClient_m httpClient;
     void Start()
     {
         httpClient=FindObjectOfType<HttpClient_m>();
-        httpClient.SendJsonData("{\"player_name\":\"test005\",\"experience\":200, \"money\":200}");
+        Debug.Log(SaveToString());
+        httpClient.SendJsonData(SaveToString());
     }
-    
 
-        public string SaveToString()
+    public string SaveToString()
     {
         return JsonUtility.ToJson(this);
     }

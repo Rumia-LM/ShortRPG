@@ -703,6 +703,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d11a6514bc4a4b45a33519bef82170c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_name: test401
+  experience: 1000
+  money: 1000
 --- !u!114 &1712550575
 MonoBehaviour:
   m_ObjectHideFlags: 0

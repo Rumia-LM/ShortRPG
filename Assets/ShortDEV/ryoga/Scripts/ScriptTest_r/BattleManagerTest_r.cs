@@ -341,10 +341,17 @@ public class BattleManagerTest_r : MonoBehaviour
         //戦闘結果に応じたシーンの切り替え
         if(result=="win"||result=="escape"){
             PlayerDataManagerTest_r.Instance.UpdateHP(player.HP); //現在のHPを保存
-            StartCoroutine(FadeAndTransitionToScene("FieldTest_r")); //勝利・逃げる成功→フィールドに移行
+            //勝利or逃げる→Fieldsceneに移行
+            SceneTransitionManagerTest_r.Instance.TranssitionToScene("FieldTest_r",()=>{
+                Debug.Log("Returned to FieldScene after winning or escaping");
+                PlayerDataManagerTest_r.Instance.ShowPlayer(); //プレイヤー再表示
+        });
         }else if(result=="lose"){
             PlayerDataManagerTest_r.Instance.ResetData(); //敗北時にデータをリセット
-            StartCoroutine(FadeAndTransitionToScene("GameOverTest_r")); //敗北→GameOver画面に移行
+            //敗北→GameOver画面に移行
+            SceneTransitionManagerTest_r.Instance.TranssitionToScene("GameOverTest_r",()=>{
+                Debug.Log("Transitioned to GameOverScene.");
+            }); 
         }
     }
 

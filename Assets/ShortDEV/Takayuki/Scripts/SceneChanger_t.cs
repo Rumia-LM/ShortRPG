@@ -1,25 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class SceneChanger_t : MonoBehaviour
+public class SceneChanger : MonoBehaviour
 {
-    [SerializeField] private string sceneName; // 切り替えたいシーンの名前
-    [SerializeField] private Vector3 targetPosition; // 切り替え後のプレイヤーの目標位置
+    public Vector2 spawnPosition;
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void ChangeScene(string sceneName)
     {
-        if (other.CompareTag("Player"))
-        {
-            // プレイヤーの現在位置と状態を保存
-            PlayerController_t player = other.GetComponent<PlayerController_t>();
-            PlayerData_t.SaveData(player.transform.position, player.health, player.attack);
-            PlayerData_t.SaveTargetPosition(targetPosition);
+        // 遷移先シーンの座標を保存
+        PlayerPrefs.SetFloat("SpawnX", spawnPosition.x);
+        PlayerPrefs.SetFloat("SpawnY", spawnPosition.y);
+        SceneManager.LoadScene(sceneName);
+    }
+}
 
-            Debug.Log("Player entered the scene change area.");
-            SceneManager.LoadScene(sceneName);
-        }
+public class PlayerController : MonoBehaviour
+{
+    void Start()
+    {
+        // シーン読み込み時に座標を取得
+        float x = PlayerPrefs.GetFloat("SpawnX", 0);
+        float y = PlayerPrefs.GetFloat("SpawnY", 0);
+        transform.position = new Vector2(x, y);
     }
 }

@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayDistance: 10
-  hitLayers:
+  layerMask:
     serializedVersion: 2
     m_Bits: 4294967295
 --- !u!4 &538985978 stripped
@@ -2603,6 +2603,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4225124371108598999, guid: faa470aa470f11946b81a32133e97e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038710395256740447, guid: faa470aa470f11946b81a32133e97e37, type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8913705749887016401, guid: faa470aa470f11946b81a32133e97e37, type: 3}

@@ -2,24 +2,27 @@
     "monsters": [
         {
             "name": "Slime",
-            "health": 20,
-            "attack": 3,
-            "experience": 5,
-            "gold": 1
+            "hp": 20,
+            "atk": 30,
+            "exp": 5,
+            "gold": 1,
+            "image":"Slime"
         },
         {
             "name": "Goblin",
-            "health": 30,
-            "attack": 5,
-            "experience": 10,
-            "gold": 3
+            "hp": 30,
+            "atk": 50,
+            "exp": 10,
+            "gold": 3,
+            "image":"Goblin"
         },
         {
             "name": "Zombie",
-            "health": 40,
-            "attack": 7,
-            "experience": 12,
-            "gold": 2
+            "hp": 40,
+            "atk": 70,
+            "exp": 12,
+            "gold": 2,
+            "image":"Zombie"
         }
     ]
 }

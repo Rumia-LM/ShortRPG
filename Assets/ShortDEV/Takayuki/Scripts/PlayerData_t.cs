@@ -21,5 +21,10 @@ public class PlayerData_t
     {
         targetPosition = targetPos;
     }
+
+    internal static Vector3 GetTargetPosition()
+    {
+        throw new NotImplementedException();
+    }
 }
 

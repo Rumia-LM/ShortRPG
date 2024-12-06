@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2336639390457145029}
   - component: {fileID: 817076732272017433}
+  - component: {fileID: -8502133818966072561}
   - component: {fileID: 3900375475219969755}
   - component: {fileID: 6844667915547126202}
   m_Layer: 0
@@ -56,6 +57,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8502133818966072561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657884133574236206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03acc2df9f52f5149b8eb23ff7213104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 7
+  health: 0
+  attack: 0
+  prefab: {fileID: 0}
 --- !u!114 &3900375475219969755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +166,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: kirito_f
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 315983456923812957, guid: ecbc34810188bf446b442579235e8587, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

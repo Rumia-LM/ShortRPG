@@ -474,7 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1587325231}
   - component: {fileID: 1587325230}
-  - component: {fileID: 1587325229}
+  - component: {fileID: 1587325232}
   m_Layer: 0
   m_Name: FieldArea_Boss
   m_TagString: Untagged
@@ -482,20 +482,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1587325229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587325228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cef21e9fcae836f40af3e368b045127b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: Assets/ShortDEV/Takayuki/Scenes/MasterScene_t/FieldTest_Master.unity
-  targetPosition: {x: 0.11, y: -1.16, z: 0}
 --- !u!61 &1587325230
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -556,6 +542,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1587325232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587325228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2700961b149da748b63dfccd45566ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1706191699
 GameObject:
   m_ObjectHideFlags: 0

@@ -129,13 +129,4 @@ public class PlayerController_I : MonoBehaviour
             rb.velocity = moveInput * moveSpeed;
         }
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            rb.velocity = Vector2.zero;
-            Debug.Log("Collided with wall.");
-        }
-    }
 }

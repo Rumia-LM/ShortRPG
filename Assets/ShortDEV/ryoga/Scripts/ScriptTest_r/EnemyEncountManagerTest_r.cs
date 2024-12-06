@@ -7,21 +7,11 @@ public class EnemyEncounterManager : MonoBehaviour
     public Transform fieldCenter; // フィールドの中心
     public float encounterRadius = 10f; // 戦闘が発生する範囲の半径
     public float encounterTime = 5f; // 戦闘に移行するまでの待機時間（秒）
-    public Transform targetObject; //ターゲットのTransform
 
     private float timeInRange = 0f; // 指定範囲内に滞在している時間
 
     void Update()
-    {   
-        //Transformが破棄されていないか確認
-        if (transform == null){ 
-            Debug.LogWarning("Transform is destroyed. Skipping Update.");
-            return; // 処理をスキップ
-        }
-
-        //ターゲットの位置に向かう処理
-        transform.position = Vector3.Lerp(transform.position,targetObject.position,Time.deltaTime);
-        
+    {
         // プレイヤーが範囲内にいるか確認
         float distance = Vector3.Distance(player.position, fieldCenter.position);
         if (distance <= encounterRadius)
@@ -42,14 +32,19 @@ public class EnemyEncounterManager : MonoBehaviour
 
     void StartEncounter()
     {
+        if(PlayerDataManagerTest_r.Instance==null){
+            Debug.LogError("PlayerDataManagerTest_r.Instance is null. Cannot call HidePlayer().");
+            return;
+        }
         Debug.Log("Enemy Encountered! Transitioning to Battle Scene...");
         SceneManager.LoadScene("BattleSceneTest_r"); // 戦闘シーンに移行
+        SceneManager.sceneLoaded+=OnBattleSceneLoaded; //ロード完了時にプレイヤーを非表示
     }
 
-    /*private void OnDrawGizmosSelected()
-    {
-        // フィールド範囲を視覚的に表示するためのGizmo
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(fieldCenter.position, encounterRadius);
-    }*/
+    private void OnBattleSceneLoaded(Scene scene,LoadSceneMode mode){
+        if(scene.name=="BattleSceneTest_r"){
+            PlayerDataManagerTest_r.Instance.HidePlayer();
+            SceneManager.sceneLoaded-=OnBattleSceneLoaded;
+        }
+    }
 }

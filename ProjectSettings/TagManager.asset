@@ -5,12 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-<<<<<<< HEAD
+  - NPC
   - Rever
   - Bridge
-=======
-  - NPC
->>>>>>> Rumia/master
   layers:
   - Default
   - TransparentFX
@@ -18,13 +15,8 @@ TagManager:
   - 
   - Water
   - UI
-<<<<<<< HEAD
-  - ReverLayer
-  - BridgeLayer
-=======
-  - NPC
   - 
->>>>>>> Rumia/master
+  - 
   - 
   - 
   - 
@@ -54,11 +46,14 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Map
-    uniqueID: 1840367817
+    uniqueID: 1838823657
     locked: 0
-  - name: Character
-    uniqueID: 2549847151
+  - name: Npc
+    uniqueID: 2388045835
     locked: 0
-  - name: Window
-    uniqueID: 1147917445
+  - name: Player
+    uniqueID: 3863633249
+    locked: 0
+  - name: Msg
+    uniqueID: 878254511
     locked: 0

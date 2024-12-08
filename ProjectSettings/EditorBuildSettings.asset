@@ -6,21 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ShortDEV/Takayuki/Scenes/FirstTown_t.unity
-    guid: c07a84bc2f04d9644914f6cae016a129
-  - enabled: 1
-    path: Assets/ShortDEV/Takayuki/Scenes/FieldMapScene2_t.unity
-    guid: c80bfee8093b11d4b9f3848f67d932f4
-  - enabled: 1
-    path: Assets/ShortDEV/Takayuki/Scenes/ScriptTest_r_t.unity
-    guid: fb51f719d858e8548bb6e839558d230a
-  - enabled: 1
-    path: Assets/ShortDEV/Takayuki/Scenes/TestScene_t.unity
-    guid: 6aa3fb4519f0ca44cbba9db0139d3ccd
-  - enabled: 1
-    path: Assets/ShortDEV/Takayuki/Scenes/BossScene_t.unity
-    guid: f45ca78932603134cb55542a37e58771
-  - enabled: 1
     path: Assets/ShortDEV/Takayuki/Scenes/MasterScene_t/FieldTest_Master.unity
     guid: da6ff73b1521fe649ae96a7c90157f3b
   - enabled: 1
@@ -29,6 +14,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ShortDEV/Takayuki/Scenes/MasterScene_t/FieldTest2_Master.unity
     guid: a35eefa8eb3822842b8be8637cd54302
+  - enabled: 1
+    path: Assets/ShortDEV/Takayuki/Scenes/MasterScene_t/BossScene_Master.unity
+    guid: da3696a51af44574299418d0d9193525
+  - enabled: 1
+    path: Assets/ShortDEV/Takayuki/Scenes/MasterScene_t/FirstTown_Master.unity
+    guid: 2e4b372c0d265ce4e8b0977fdf061983
+  - enabled: 1
+    path: Assets/ShortDEV/Takayuki/Scenes/MasterScene_t/SecondCastle_Master.unity
+    guid: ec42a74aaca0dcf4197b2df65fc3025f
+  - enabled: 1
+    path: Assets/ShortDEV/Takayuki/Scenes/MasterScene_t/StartSceneTest_Master.unity
+    guid: 4744997b15efc5d44b9d864f6f28e113
   - enabled: 1
     path: Assets/materials/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729

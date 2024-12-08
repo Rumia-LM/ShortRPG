@@ -43,7 +43,7 @@ public class BattleManagerTest_Master : MonoBehaviour
         
         Debug.Log("Player initialized");
         
-        //PlayerDataManagerTest_rからプレイヤー情報を取得
+        //PlayerDataManagerTest_Masterからプレイヤー情報を取得
         int maxHP=PlayerDataManagerTest_Master.Instance.MaxHP; //最大HP
         int currentHP=PlayerDataManagerTest_Master.Instance.CurrentHP; //現在のHP
         player=new PlayerTest_Master("Hero",maxHP,PlayerDataManagerTest_Master.Instance.ATK); //ATK
@@ -73,7 +73,7 @@ public class BattleManagerTest_Master : MonoBehaviour
         UpdateBattleLog("Battle Start!");
 
         // バトルシーンではプレイヤーキャラクターを無効化
-        if (SceneManager.GetActiveScene().name == "BattleScene")
+        if (SceneManager.GetActiveScene().name == "BattleSceneTest_Master")
         {
             playerCharacter.SetActive(false);
         }

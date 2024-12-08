@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 981049027}
   - component: {fileID: 981049029}
   - component: {fileID: 981049028}
+  - component: {fileID: 981049030}
   m_Layer: 5
   m_Name: GameStartText_Master
   m_TagString: Untagged
@@ -256,6 +257,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981049026}
   m_CullTransparentMesh: 1
+--- !u!114 &981049030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981049026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7b8fe849720034d9a8df9e8237c1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 1359758094}
+  buttonText: {fileID: 981049028}
 --- !u!1 &993457582
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +375,6 @@ GameObject:
   - component: {fileID: 1316750716}
   - component: {fileID: 1316750715}
   - component: {fileID: 1316750714}
-  - component: {fileID: 1316750717}
   m_Layer: 5
   m_Name: GameStartButton_Master
   m_TagString: Untagged
@@ -432,8 +446,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2143108634}
-        m_TargetAssemblyTypeName: StartSceneTest_r, Assembly-CSharp
+      - m_Target: {fileID: 981049030}
+        m_TargetAssemblyTypeName: StartSceneTest_Master, Assembly-CSharp
         m_MethodName: GoToFieldScene
         m_Mode: 1
         m_Arguments:
@@ -482,20 +496,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316750712}
   m_CullTransparentMesh: 1
---- !u!114 &1316750717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316750712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1318250da6ed44731b50ce9ddad24b6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleText: {fileID: 0}
-  buttonText: {fileID: 0}
 --- !u!1 &1359758092
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 981049026}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1622140942
@@ -810,7 +810,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2143108635}
-  - component: {fileID: 2143108634}
   m_Layer: 0
   m_Name: StartSceneManagerTest_Master
   m_TagString: Untagged
@@ -818,20 +817,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2143108634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143108633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1318250da6ed44731b50ce9ddad24b6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleText: {fileID: 1359758094}
-  buttonText: {fileID: 981049028}
 --- !u!4 &2143108635
 Transform:
   m_ObjectHideFlags: 0

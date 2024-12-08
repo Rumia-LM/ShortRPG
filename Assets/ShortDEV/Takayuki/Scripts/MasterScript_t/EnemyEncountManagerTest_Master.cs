@@ -3,12 +3,27 @@ using UnityEngine.SceneManagement;
 
 public class EnemyEncounterManager_Master : MonoBehaviour
 {
+    public static EnemyEncounterManager_Master instance; // シングルトンパターン
     public Transform player; // プレイヤーのTransform
     public Transform fieldCenter; // フィールドの中心
     public float encounterRadius = 10f; // 戦闘が発生する範囲の半径
     public float encounterTime = 5f; // 戦闘に移行するまでの待機時間（秒）
 
     private float timeInRange = 0f; // 指定範囲内に滞在している時間
+
+    void Awake()
+    {
+        // シングルトンパターンの実装
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject); // 重複するオブジェクトを破棄
+        }
+    }
 
     void Update()
     {

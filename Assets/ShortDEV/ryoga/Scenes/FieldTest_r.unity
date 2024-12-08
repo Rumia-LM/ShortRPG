@@ -135,6 +135,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 438750147322696319, guid: fa2e61e0890fd414886e138740129448, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 481014005286119428, guid: fa2e61e0890fd414886e138740129448, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2336639390457145029, guid: fa2e61e0890fd414886e138740129448, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -175,9 +183,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2812507699133907743, guid: fa2e61e0890fd414886e138740129448, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995049125782350521, guid: fa2e61e0890fd414886e138740129448, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 299669038}
     - target: {fileID: 8657884133574236206, guid: fa2e61e0890fd414886e138740129448, type: 3}
       propertyPath: m_Name
       value: Player_r
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657884133574236206, guid: fa2e61e0890fd414886e138740129448, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -827,7 +847,6 @@ MonoBehaviour:
   fieldCenter: {fileID: 799523491}
   encounterRadius: 10
   encounterTime: 5
-  targetObject: {fileID: 2138805489}
 --- !u!1 &1620288339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,6 +2536,50 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1924767918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1924767920}
+  - component: {fileID: 1924767919}
+  m_Layer: 0
+  m_Name: SceneTransitionManagerTest_r
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1924767919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924767918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d34305e9483114631b7586dd043a0b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1924767920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924767918}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928237438
 GameObject:
   m_ObjectHideFlags: 0
@@ -8270,3 +8333,4 @@ SceneRoots:
   - {fileID: 709256141}
   - {fileID: 1772909205}
   - {fileID: 393105836}
+  - {fileID: 1924767920}

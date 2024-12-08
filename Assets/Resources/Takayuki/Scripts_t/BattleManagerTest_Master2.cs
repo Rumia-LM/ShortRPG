@@ -102,7 +102,7 @@ public class BattleManagerTest_Master2 : MonoBehaviour
             currentEnemy=enemyList[randomIndex];
 
             //敵画像を読み込む
-            Sprite enemySprite=Resources.Load<Sprite>($"Assets/Resources/Takayuki/Images_t/{currentEnemy.image}");
+            Sprite enemySprite=Resources.Load<Sprite>($"/Resources/Takayuki/Images_t/{currentEnemy.image}");
             if(enemySprite!=null){
                 EnemyImage.sprite=enemySprite; //UIに画像を設定
                 EnemyImage.enabled=true; //UIを表示

@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/BattleScene/BattleSceneTest_Master2.unity
     guid: 94a01d406f8beb64bb480ea1e739a38d
   - enabled: 1
+    path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/BossCastle/BossScene_Master2.unity
+    guid: b7d6c19e80f95d84a93444f8f2d2d803
+  - enabled: 1
     path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/EndRoll/EndRollTest_Master2.unity
     guid: ac974c8037b4f704dbfc2b6d6bdfce94
   - enabled: 1
@@ -42,12 +45,21 @@ EditorBuildSettings:
     path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/GameOver/GameOverTest_Master2.unity
     guid: 4b8a2ac30852e3847bc61ac09673f5ae
   - enabled: 1
+    path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/Home/FirstTown_Master2.unity
+    guid: 6325c7800aff18a44bacf0b2eb46795b
+  - enabled: 1
+    path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/KingCastle/SecondCastle_Master2.unity
+    guid: a4d8af606dcca6c4896a93727cdeac50
+  - enabled: 1
+    path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/LostVillege/FinalTown_Master2.unity
+    guid: 5e5bb37bf07e93a4cb25dcb3746bc013
+  - enabled: 1
     path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/StartOver/StartOverTest_Master2.unity
     guid: 2bbfe25f772619642a151e48de904a16
   - enabled: 1
     path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/StartScene/StartSceneTest_Master2.unity
     guid: 8592e881c3287094482592005051f751
   - enabled: 1
-    path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/Home/FirstTown_Master2.unity
-    guid: 6325c7800aff18a44bacf0b2eb46795b
+    path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/EventTestScene_Master.unity
+    guid: ce89a3ed6645a4942b2e0576a108ca0f
   m_configObjects: {}

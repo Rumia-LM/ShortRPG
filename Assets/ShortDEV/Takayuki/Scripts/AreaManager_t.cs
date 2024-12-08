@@ -8,7 +8,7 @@ public class AreaManager : MonoBehaviour
     {
         { "FieldTest_Master", new Dictionary<string, Vector2>
             {
-                { "FirstTown_Master", new Vector2(0, 1) },
+                { "FirstTown_Master", new Vector2(8, 1) },
                 { "SecondCastle_Master", new Vector2(0, 0) },
                 { "FinalTown_Master", new Vector2(0, 0) },
                 { "BossScene_Master", new Vector2(0, 0) }

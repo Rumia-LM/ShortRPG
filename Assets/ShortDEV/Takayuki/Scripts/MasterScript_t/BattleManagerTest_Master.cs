@@ -30,6 +30,27 @@ public class BattleManagerTest_Master : MonoBehaviour
     private bool isProcessing=false; //処理中のフラグ
     private bool isBattleOver=false; //戦闘終了のフラグ
 
+    public static PlayerDataManagerTest_Master Instance { get; private set; }
+
+    void Awake()
+    {
+        // PlayerDataManagerTest_Masterが正しく初期化されているか確認
+        if (PlayerDataManagerTest_Master.Instance == null)
+        {
+            Debug.LogError("PlayerDataManagerTest_Master.Instance is not initialized!");
+            return;
+        }
+
+        // ここに初期化処理を追加
+        InitializeBattle(); // 例: 戦闘の初期化メソッドを呼び出す
+    }
+
+    void InitializeBattle()
+    {
+        // 戦闘の初期化処理をここに実装
+        Debug.Log("Battle initialized.");
+    }
+
     void Start()
     {
         Debug.Log("Start method called");
@@ -40,9 +61,9 @@ public class BattleManagerTest_Master : MonoBehaviour
         }
         Debug.Log("PlayerDataManagerTest_Master.Instance initialized");
         InitializePlayer();
-        
+
         Debug.Log("Player initialized");
-        
+
         //PlayerDataManagerTest_Masterからプレイヤー情報を取得
         int maxHP=PlayerDataManagerTest_Master.Instance.MaxHP; //最大HP
         int currentHP=PlayerDataManagerTest_Master.Instance.CurrentHP; //現在のHP
@@ -97,6 +118,18 @@ public class BattleManagerTest_Master : MonoBehaviour
             Debug.Log("Player instance created");
         }
         player.HP = currentHP; Debug.Log("Player initialized successfully");
+    }
+
+    public void GoToFieldScene()
+    {
+        // PlayerDataManagerTest_Masterのインスタンスを確保
+        if (PlayerDataManagerTest_Master.Instance == null)
+        {
+            Debug.LogError("PlayerDataManagerTest_Master.Instance is not initialized!");
+            return;
+        }
+
+        SceneManager.LoadScene("FirstTown_Master"); // フィールド画面に移動
     }
 
     void OnDestroy()
@@ -318,7 +351,7 @@ public class BattleManagerTest_Master : MonoBehaviour
         //戦闘結果に応じたシーンの切り替え
         if(result=="win"||result=="escape"){
             PlayerDataManagerTest_Master.Instance.UpdateHP(player.HP); //現在のHPを保存
-            StartCoroutine(FadeAndTransitionToScene("FieldTest2_Master")); //勝利・逃げる成功→フィールドに移行
+            StartCoroutine(FadeAndTransitionToScene("FieldTest_Master")); //勝利・逃げる成功→フィールドに移行
         }else if(result=="lose"){
             PlayerDataManagerTest_Master.Instance.ResetData(); //敗北時にデータをリセット
             StartCoroutine(FadeAndTransitionToScene("GameOverTest_Master")); //敗北→GameOver画面に移行

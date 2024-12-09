@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyEncounterManager : MonoBehaviour
+public class EnemyEncounterManagerTest_r : MonoBehaviour
 {
     public Transform player; // プレイヤーのTransform
     public Transform fieldCenter; // フィールドの中心
@@ -48,19 +48,13 @@ public class EnemyEncounterManager : MonoBehaviour
 
     void StartEncounter()
     {
-        if(PlayerDataManagerTest_r.Instance==null){
-            Debug.LogError("PlayerDataManagerTest_r.Instance is null. Cannot call HidePlayer().");
-            return;
-        }
         Debug.Log("Enemy Encountered! Transitioning to Battle Scene...");
-        
-        //SceneTransitionManagerを使用して戦闘シーンに遷移
-        SceneTransitionManagerTest_r.Instance.TranssitionToScene("BattleSceneTest_r",OnBattleSceneLoaded);
+        SceneManager.LoadScene("BattleSceneTest_r"); // 戦闘シーンに移行
     }
 
     //戦闘シーンロード完了後の処理
-    private void OnBattleSceneLoaded(){
+    /*private void OnBattleSceneLoaded(){
         PlayerDataManagerTest_r.Instance.HidePlayer();  
         Debug.Log("Player has been hidden after transitioning to BattleSceneTest_r.");
-    }
+    }*/
 }

@@ -3,19 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
   tags: []
-=======
-  tags:
-  - Wall
-  - NPC
-  - Rever
-  - Bridge
->>>>>>> mirai/master
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
+  - 
   - Water
   - UI
   - 
@@ -48,18 +41,3 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
-=======
-  - name: Map
-    uniqueID: 1838823657
-    locked: 0
-  - name: Npc
-    uniqueID: 2388045835
-    locked: 0
-  - name: Player
-    uniqueID: 3863633249
-    locked: 0
-  - name: Msg
-    uniqueID: 878254511
-    locked: 0
->>>>>>> mirai/master

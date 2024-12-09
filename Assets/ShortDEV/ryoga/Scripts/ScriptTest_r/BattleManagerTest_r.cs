@@ -29,7 +29,10 @@ public class BattleManagerTest_r : MonoBehaviour
     private bool isBattleOver=false; //戦闘終了のフラグ
 
     void Start()
-    {  
+    {   
+        //プレイヤーを非表示にする
+        PlayerDataManagerTest_r.Instance.HidePlayer(); 
+
         //敵リストを初期化（JSONから読み込む）
         LoadEnemiesFromJSON();
 
@@ -341,17 +344,10 @@ public class BattleManagerTest_r : MonoBehaviour
         //戦闘結果に応じたシーンの切り替え
         if(result=="win"||result=="escape"){
             PlayerDataManagerTest_r.Instance.UpdateHP(player.HP); //現在のHPを保存
-            //勝利or逃げる→Fieldsceneに移行
-            SceneTransitionManagerTest_r.Instance.TranssitionToScene("FieldTest_r",()=>{
-                Debug.Log("Returned to FieldScene after winning or escaping");
-                PlayerDataManagerTest_r.Instance.ShowPlayer(); //プレイヤー再表示
-        });
+            StartCoroutine(FadeAndTransitionToScene("FieldTest_r")); //勝利・逃げる成功→フィールドに移行
         }else if(result=="lose"){
             PlayerDataManagerTest_r.Instance.ResetData(); //敗北時にデータをリセット
-            //敗北→GameOver画面に移行
-            SceneTransitionManagerTest_r.Instance.TranssitionToScene("GameOverTest_r",()=>{
-                Debug.Log("Transitioned to GameOverScene.");
-            }); 
+            StartCoroutine(FadeAndTransitionToScene("GameOverTest_r")); //敗北→GameOver画面に移行
         }
     }
 
@@ -360,7 +356,10 @@ public class BattleManagerTest_r : MonoBehaviour
         yield return new WaitForSeconds(1f); //1秒待ってから
         yield return StartCoroutine(FadeOut()); //フェードアウト開始
         SceneManager.LoadScene(sceneName);
-        PlayerDataManagerTest_r.Instance.ShowPlayer(); //プレイヤーを表示
+        // フィールドに戻る場合のみプレイヤーを再表示
+        if (sceneName == "FieldTest_r"){
+            PlayerDataManagerTest_r.Instance.ShowPlayer();
+        }
     }
 
     //フェードアウト処理

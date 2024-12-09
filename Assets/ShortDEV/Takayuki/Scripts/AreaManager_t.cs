@@ -8,28 +8,30 @@ public class AreaManager : MonoBehaviour
     {
         { "FieldTest_Master", new Dictionary<string, Vector2>
             {
-                { "Town1", new Vector2(0, 0) },
-                { "Town2", new Vector2(5, 0) }
+                { "FirstTown_Master", new Vector2(8, 1) },
+                { "SecondCastle_Master", new Vector2(0, 0) },
+                { "FinalTown_Master", new Vector2(0, 0) },
+                { "BossScene_Master", new Vector2(0, 0) }
             }
         },
         { "FirstTown_Master", new Dictionary<string, Vector2>
             {
-                { "FieldTest_Master", new Vector2(0, 0) }
+                { "FieldTest_Master", new Vector2(-29, -12) }
             }
         },
         { "SecondCastle_Master", new Dictionary<string, Vector2>
             {
-                { "FieldTest_Master", new Vector2(5, 0) }
+                { "FieldTest_Master", new Vector2(26, 15) }
             }
         },
         { "FinalTown_Master", new Dictionary<string, Vector2>
             {
-                { "FieldTest_Master", new Vector2(10, 0) }
+                { "FieldTest_Master", new Vector2(-26, 45) }
             }
         },
         { "BossScene_Master", new Dictionary<string, Vector2>
             {
-                { "FieldTest_Master", new Vector2(15, 0) }
+                { "FieldTest_Master", new Vector2(27, 44) }
             }
         }
     };
@@ -57,7 +59,7 @@ public class AreaManager : MonoBehaviour
             PlayerPrefs.SetFloat("SpawnX", spawnPosition.x);
             PlayerPrefs.SetFloat("SpawnY", spawnPosition.y);
         }
-        
+
         SceneManager.LoadScene(sceneName);
     }
 

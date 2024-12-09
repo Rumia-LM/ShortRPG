@@ -389,8 +389,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u3067\u3063\u304B\u3044\u3060\u3051\u3067\u5EA7\u3089\u3055\u308C\u3066\u56F0\u3063\u3066\u3044\u307E\u3059\u3002\n\u65E9\u304F\u5012\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bc7fb138487d9bc4d973f79388fbd1f9, type: 2}
-  m_sharedMaterial: {fileID: -7973523224369159722, guid: bc7fb138487d9bc4d973f79388fbd1f9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 34aa760c3545dd947905af0384b7604e, type: 2}
+  m_sharedMaterial: {fileID: -8249745698108556241, guid: 34aa760c3545dd947905af0384b7604e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -476,6 +476,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero1
       objectReference: {fileID: 0}
+    - target: {fileID: 1882126039569421905, guid: 7f4bb8bf0cec1224aa4eb3d6f167944c, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 1655528690}
     - target: {fileID: 6784807108511862289, guid: 7f4bb8bf0cec1224aa4eb3d6f167944c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.2
@@ -611,6 +615,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2700961b149da748b63dfccd45566ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1655528690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 105908740776904788, guid: 7f4bb8bf0cec1224aa4eb3d6f167944c, type: 3}
+  m_PrefabInstance: {fileID: 1308831813}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1706191699
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1706191700
 RectTransform:
   m_ObjectHideFlags: 0
@@ -710,7 +719,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: -1
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 1147917445
+  m_SortingLayerID: 878254511
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1001 &1905119249

@@ -388,6 +388,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StartSceneTest_Master2, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5841083422277700118, guid: 6a1dd1559524f5a4f8a70786e7e7f639, type: 3}
+      propertyPath: m_text
+      value: ComplianceCommunications. Development All the brave men and women. Collaborate
+        Four Heavens
+      objectReference: {fileID: 0}
     - target: {fileID: 9149011089213522736, guid: 6a1dd1559524f5a4f8a70786e7e7f639, type: 3}
       propertyPath: m_Name
       value: SSCanvas_Master2

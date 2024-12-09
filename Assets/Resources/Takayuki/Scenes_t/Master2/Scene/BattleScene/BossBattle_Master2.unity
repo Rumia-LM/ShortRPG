@@ -262,6 +262,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGMPlayer Battle
       objectReference: {fileID: 0}
+    - target: {fileID: 8303509638718211090, guid: f067748cb3f01fc4f9fcc5a12cfe5dbc, type: 3}
+      propertyPath: loopClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a690b4d0d898ad43939c573089fc090, type: 3}
+    - target: {fileID: 8303509638718211090, guid: f067748cb3f01fc4f9fcc5a12cfe5dbc, type: 3}
+      propertyPath: loopDelay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

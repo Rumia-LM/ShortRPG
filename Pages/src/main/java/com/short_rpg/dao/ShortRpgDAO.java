@@ -119,29 +119,4 @@ public class ShortRpgDAO {
         }
         return player;
     }
-	
-	// プレイヤーのIDを指定して一件取得(使用していないため削除予定)
-	public Player getShortRpgById(int id) {
-        String sql = "SELECT * FROM player_scores WHERE user_id = ?";
-        Player player = null;
-        try (Connection db = new ShortRpgDataSource().getConnection();
-             PreparedStatement ps = db.prepareStatement(sql)) {
-
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-            	player = new Player();
-            	player.setId(rs.getInt("user_id"));
-            	player.setName(rs.getString("player_name"));
-                player.setExperience(rs.getInt("experience"));
-                player.setMoney(rs.getInt("money"));
-                player.setScore(rs.getInt("score"));
-            }
-
-        } catch (SQLException | NamingException e) {
-            e.printStackTrace();
-        }
-        return player;
-    }
 }

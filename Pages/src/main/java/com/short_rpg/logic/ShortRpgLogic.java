@@ -42,10 +42,4 @@ public class ShortRpgLogic {
     private int calculateScore(int experience, int money) {
         return money * 2 + experience; // 例:所持金*2 + 経験値
     }
-    
-    // スコアの降順でリストをソート(DAO側で行うことにしたので削除予定)
-    public List<Player> sortPlayersByScore(List<Player> players) {
-        Collections.sort(players, Comparator.comparingInt(Player::getScore).reversed());
-        return players;
-    }
 }

@@ -80,7 +80,7 @@ public class BattleManagerTest_Master2 : MonoBehaviour
 
     //JSONファイルから敵リストを読み込む
     private void LoadEnemiesFromJSON(){
-        string filePath=Application.dataPath+"Assets/Resources/Takayuki/Scripts_t/Json/monstersList_Master2.json";
+        string filePath=Application.dataPath+"/Resources/Takayuki/Scripts_t/Json/monstersList_Master2.json";
         if(File.Exists(filePath)){
             string jsonText=File.ReadAllText(filePath);
             MonsterList_Master2 monsterList=JsonUtility.FromJson<MonsterList_Master2>(jsonText);
@@ -102,7 +102,7 @@ public class BattleManagerTest_Master2 : MonoBehaviour
             currentEnemy=enemyList[randomIndex];
 
             //敵画像を読み込む
-            Sprite enemySprite=Resources.Load<Sprite>($"/Resources/Takayuki/Images_t/{currentEnemy.image}");
+            Sprite enemySprite=Resources.Load<Sprite>($"/Resources/ryoga/Images/{currentEnemy.image}");
             if(enemySprite!=null){
                 EnemyImage.sprite=enemySprite; //UIに画像を設定
                 EnemyImage.enabled=true; //UIを表示

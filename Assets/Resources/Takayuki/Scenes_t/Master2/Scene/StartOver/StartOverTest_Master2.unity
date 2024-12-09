@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 385768371}
   - component: {fileID: 385768370}
   m_Layer: 0
-  m_Name: SOMain Camera_r
+  m_Name: SOMain Camera_Master2
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 515526386}
   - component: {fileID: 515526385}
   m_Layer: 5
-  m_Name: ToStartButton(SO)_r
+  m_Name: ToStartButton(SO)_Master2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,10 +297,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 583638290}
-        m_TargetAssemblyTypeName: StartOverTest_r, Assembly-CSharp
-        m_MethodName: GoToStartScene
-        m_Mode: 1
+      - m_Target: {fileID: 1745546059}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 583638289}
   - component: {fileID: 583638290}
   m_Layer: 0
-  m_Name: StartOverManagerTest_r
+  m_Name: StartOverManagerTest_Master2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,10 +388,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 583638287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7020d7e4177a54b6ea5683072dcbe1b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fd2005a6608ce147b9cbb4a0f1c6896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startOverText: {fileID: 1745546059}
+  titleText: {fileID: 1745546059}
   buttonText: {fileID: 1394221924}
 --- !u!1 &778946496
 GameObject:
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 778946498}
   - component: {fileID: 778946497}
   m_Layer: 5
-  m_Name: SOCanvas_r
+  m_Name: SOCanvas_Master2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 1162244098}
   - component: {fileID: 1162244097}
   m_Layer: 0
-  m_Name: SOEventSystem_r
+  m_Name: SOEventSystem_Master2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 1394221925}
   - component: {fileID: 1394221924}
   m_Layer: 5
-  m_Name: ToStartText(SO)_r
+  m_Name: ToStartText(SO)_Master2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 1745546060}
   - component: {fileID: 1745546059}
   m_Layer: 5
-  m_Name: StartOverText_r
+  m_Name: StartOverText_Master2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

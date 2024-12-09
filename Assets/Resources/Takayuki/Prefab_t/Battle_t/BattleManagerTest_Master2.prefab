@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1662930748360162281}
-  - component: {fileID: 3430966821065449750}
   m_Layer: 0
   m_Name: BattleManagerTest_Master2
   m_TagString: Untagged
@@ -32,32 +31,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3430966821065449750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605799471849915428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cffa411824290145b5e06abfaaaf3e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackButton: {fileID: 0}
-  HealButton: {fileID: 0}
-  EscapeButton: {fileID: 0}
-  PlayerHPBar: {fileID: 0}
-  PlayerNameAndHPText: {fileID: 0}
-  EnemyHPBar: {fileID: 0}
-  BattleLogText: {fileID: 0}
-  BattleLogScrollRect: {fileID: 0}
-  FadeImage: {fileID: 0}
-  currentEnemy:
-    name: 
-    hp: 0
-    atk: 0
-    exp: 0
-    gold: 0
-    image: 
-  EnemyImage: {fileID: 0}

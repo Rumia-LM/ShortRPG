@@ -63,6 +63,9 @@ EditorBuildSettings:
     path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/StartScene/StartSceneTest_Master2.unity
     guid: 8592e881c3287094482592005051f751
   - enabled: 1
+    path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/BattleScene/BossBattle_Master2.unity
+    guid: a8cdd9bf6f46ab94e85b6fd50010e6c6
+  - enabled: 1
     path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/EventTestScene_Master.unity
     guid: ce89a3ed6645a4942b2e0576a108ca0f
   m_configObjects: {}

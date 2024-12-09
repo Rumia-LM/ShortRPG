@@ -35,7 +35,7 @@ public class EndRollTest_Master2 : MonoBehaviour
 
     private IEnumerator WaitAndChangeScene(){
         yield return new WaitForSeconds(3f); //待機時間
-        SceneManager.LoadScene("StartOverTest_Master2");
+        SceneManager.LoadScene("StartSceneTest_Master2");
 
     }
 }

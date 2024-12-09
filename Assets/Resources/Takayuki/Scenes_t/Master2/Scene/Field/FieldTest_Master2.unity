@@ -434,6 +434,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4675517175140697851, guid: 06b6c26a467c4dc4c8a1387e465e777c, type: 3}
+      propertyPath: loopClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3a85e86f248c6b74e9930585670d3408, type: 3}
+    - target: {fileID: 4675517175140697851, guid: 06b6c26a467c4dc4c8a1387e465e777c, type: 3}
       propertyPath: loopDelay
       value: 0
       objectReference: {fileID: 0}

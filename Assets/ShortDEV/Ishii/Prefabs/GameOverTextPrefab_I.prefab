@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 5676356903602028322}
   - component: {fileID: 8116573647121066368}
   m_Layer: 6
-  m_Name: KingTextPrefab_I
+  m_Name: GameOverTextPrefab_I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

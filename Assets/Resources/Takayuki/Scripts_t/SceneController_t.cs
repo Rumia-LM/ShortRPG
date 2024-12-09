@@ -56,7 +56,7 @@ public class SceneController_t : MonoBehaviour
                 }
                 else if (SceneManager.GetActiveScene().name == "SecondCastle_Master2")
                 {
-                    playerSpawnPosition = new Vector3(26.78f, -13.16f, 0); // SecondCastle_Master2からの遷移位置
+                    playerSpawnPosition = new Vector3(26.78f, 13.16f, 0); // SecondCastle_Master2からの遷移位置
                 }
                 else if (SceneManager.GetActiveScene().name == "BossScene_Master2")
                 {
@@ -78,7 +78,7 @@ public class SceneController_t : MonoBehaviour
             case "SecondCastle_Master2":
                 if (SceneManager.GetActiveScene().name == "FieldTest_Master2")
                 {
-                    playerSpawnPosition = new Vector3(-1.91f, -2.0f, 0); // FieldTest_Master2の初期位置
+                    playerSpawnPosition = new Vector3(-0.08f, -2.0f, 0); // FieldTest_Master2の初期位置
                 }
                 break;
             case "BossScene_Master2":

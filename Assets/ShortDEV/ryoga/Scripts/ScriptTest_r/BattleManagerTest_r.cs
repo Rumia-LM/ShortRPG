@@ -29,7 +29,10 @@ public class BattleManagerTest_r : MonoBehaviour
     private bool isBattleOver=false; //戦闘終了のフラグ
 
     void Start()
-    {
+    {   
+        //プレイヤーを非表示にする
+        PlayerDataManagerTest_r.Instance.HidePlayer(); 
+
         //敵リストを初期化（JSONから読み込む）
         LoadEnemiesFromJSON();
 
@@ -353,6 +356,10 @@ public class BattleManagerTest_r : MonoBehaviour
         yield return new WaitForSeconds(1f); //1秒待ってから
         yield return StartCoroutine(FadeOut()); //フェードアウト開始
         SceneManager.LoadScene(sceneName);
+        // フィールドに戻る場合のみプレイヤーを再表示
+        if (sceneName == "FieldTest_r"){
+            PlayerDataManagerTest_r.Instance.ShowPlayer();
+        }
     }
 
     //フェードアウト処理

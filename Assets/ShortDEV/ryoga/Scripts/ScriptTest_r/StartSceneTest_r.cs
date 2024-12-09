@@ -23,6 +23,7 @@ public class StartSceneTest_r : MonoBehaviour
     public void GoToFieldScene()
     {
         SceneManager.LoadScene("FieldTest_r"); //フィールド画面に移動
+        PlayerDataManagerTest_r.Instance.ShowPlayer(); //プレイヤーを表示
     }
 
 }

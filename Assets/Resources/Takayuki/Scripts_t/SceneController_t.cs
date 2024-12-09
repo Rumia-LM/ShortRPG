@@ -72,7 +72,7 @@ public class SceneController_t : MonoBehaviour
             case "FinalTown_Master2":
                 if (SceneManager.GetActiveScene().name == "FieldTest_Master2")
                 {
-                    playerSpawnPosition = new Vector3(-5, -5, 0); // FieldTest_Master2の初期位置
+                    playerSpawnPosition = new Vector3(0, -2.0f, 0); // FieldTest_Master2の初期位置
                 }
                 break;
             case "SecondCastle_Master2":

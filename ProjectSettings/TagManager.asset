@@ -8,10 +8,20 @@ TagManager:
   - NPC
   - Rever
   - Bridge
+  - MonsterEncountTest1_Master
+  - MonsterEncountTest2_Master
+  - MonsterEncountTest3_Master
+  - EncountArea
+  - LastCastle
+  - Home
+  - KingCastle
+  - LostVillage
+  - WorldMap
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
+  - Water
   - Water
   - UI
   - 
@@ -55,4 +65,7 @@ TagManager:
     locked: 0
   - name: Msg
     uniqueID: 878254511
+    locked: 0
+  - name: Monster
+    uniqueID: 1126261677
     locked: 0

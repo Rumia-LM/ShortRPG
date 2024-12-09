@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8527743590828639770}
   - component: {fileID: 3598117580550952945}
   - component: {fileID: 5590411241343084392}
-  - component: {fileID: 2560256531651599271}
   m_Layer: 0
   m_Name: BossSIro_Master
   m_TagString: Untagged
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1838823657
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 05335d8eecdcef94b80ee74def8ca0a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,17 +130,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.91, y: 0.95}
   m_EdgeRadius: 0
---- !u!114 &2560256531651599271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7835829655463306734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cef21e9fcae836f40af3e368b045127b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: Assets/ShortDEV/Takayuki/Scenes/MasterScene_t/BossScene_Master.unity
-  targetPosition: {x: 0.11, y: -1.16, z: 0}

@@ -113,6 +113,7 @@ MonoBehaviour:
   moveSpeed: 5
   health: 0
   attack: 0
+  prefab: {fileID: 0}
 --- !u!1001 &6766445553040738093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,7 +164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6578591173048463145, guid: ecbc34810188bf446b442579235e8587, type: 3}
       propertyPath: m_Name
-      value: kirito_f
+      value: kirito_r
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625356414444508498, guid: ecbc34810188bf446b442579235e8587, type: 3}
+      propertyPath: m_Name
+      value: Camera_r
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

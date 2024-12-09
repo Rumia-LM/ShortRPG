@@ -27,6 +27,13 @@ public class EnemyEncounterManager_Master : MonoBehaviour
 
     void Update()
     {
+        // playerとfieldCenterがnullでないことを確認
+        if (player == null || fieldCenter == null)
+        {
+            Debug.LogWarning("Player or FieldCenter is null.");
+            return;
+        }
+
         // プレイヤーが範囲内にいるか確認
         float distance = Vector3.Distance(player.position, fieldCenter.position);
         if (distance <= encounterRadius)
@@ -54,7 +61,10 @@ public class EnemyEncounterManager_Master : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         // フィールド範囲を視覚的に表示するためのGizmo
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(fieldCenter.position, encounterRadius);
+        if (fieldCenter != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(fieldCenter.position, encounterRadius);
+        }
     }
 }

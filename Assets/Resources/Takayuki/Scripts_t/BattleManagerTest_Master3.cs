@@ -209,7 +209,7 @@ public class BattleManagerTest_Master3 : MonoBehaviour
         else if (action == "escape")
         {
             yield return LogAction("Hero escaped!");
-            if (UnityEngine.Random.Range(0f, 1f) > 0.5f) // 50%の確率で成功
+            if (UnityEngine.Random.Range(0f, 1f) > 1f) // 逃げられない
             {
                 yield return LogAction("Hero managed to escape!");
                 EndBattle("escape"); // 逃げる成功

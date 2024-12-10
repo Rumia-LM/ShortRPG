@@ -376,14 +376,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "===========================\n  \u30B9\u30BF\u30C3\u30D5\u30AF\u30EC\u30B8\u30C3\u30C8\n===========================\n\n\u30C7\u30A3\u30EC\u30AF\u30BF\u30FC\n-------------\nJohn
-    Doe\n\n\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\n-------------\nJane Smith\nEmily
-    Johnson\n\n\u30C7\u30B6\u30A4\u30CA\u30FC\n-------------\nMichael Brown\nSophia
-    Williams\n\n\u30A2\u30CB\u30E1\u30FC\u30BF\u30FC\n-------------\nChris Davis\nOlivia
-    Taylor\n\n\u30B5\u30A6\u30F3\u30C9\u30C7\u30B6\u30A4\u30CA\u30FC\n-------------\nLiam
-    Wilson\nEmma Thomas\n\n\u30B9\u30DA\u30B7\u30E3\u30EB\u30B5\u30F3\u30AF\u30B9\n-------------------\nAI
-    Support (ChatGPT)\nYour Name\n\n===========================\n\u30B5\u30DD\u30FC\u30C8\u3057\u3066\u304F\u308C\u305F\u3059\u3079\u3066\u306E\u65B9\u3005\u3078\n\u5FC3\u3088\u308A\u611F\u8B1D\u7533\u3057\u4E0A\u3052\u307E\u3059\u3002\n\n===========================\n\nPresented
-    by\nYour Game Studio\n\nCopyright \xA9 2024 Your Game Studio.\nAll Rights Reserved.\n\n==========================="
+  m_Text: "===========================\n  \u30B9\u30BF\u30C3\u30D5\u30AF\u30EC\u30B8\u30C3\u30C8\n===========================\n\n\u30C1\u30FC\u30E0\u30EA\u30FC\u30C0\u30FC\n-------------\n\u9577\u8C37\u5DDD
+    \u672A\u6765\n\n\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\n-------------\n\u4E2D\u6751
+    \u51CC\u96C5\n\u9577\u8C37\u5DDD \u672A\u6765\n\u77F3\u4E95 \u9F8D\u4E4B\u4ECB\n\u4E2D\u6751
+    \u9686\u4E4B\n\n\u30D0\u30C8\u30EB\u30C7\u30B6\u30A4\u30F3\n-------------\n\u4E2D\u6751
+    \u51CC\u96C5\n\n\u30DE\u30C3\u30D7\u30C7\u30B6\u30A4\u30F3\n-------------\n\u77F3\u4E95
+    \u9F8D\u4E4B\u4ECB\n\n\u30A4\u30D9\u30F3\u30C8\u30C7\u30B6\u30A4\u30F3\n-------------\n\u77F3\u4E95
+    \u9F8D\u4E4B\u4ECB\n\n\u30E2\u30F3\u30B9\u30BF\u30FC\u30C7\u30B6\u30A4\u30F3\n-------------\n\u30FB\u30DD\u30B1\u30C3\u30C8\u30E2\u30F3\u30B9\u30BF\u30FC\n\u3000\u30D4\u30AB\u30C1\u30E5\u30A6\n\u3000\u30AB\u30D3\u30B4\u30F3\n\u3000\u30E1\u30BF\u30E2\u30F3\n\u30FB\u30E2\u30F3\u30B9\u30BF\u30FC\u30CF\u30F3\u30BF\u30FC\n\u3000\u30F4\u30A1\u30EB\u30B5\u30D6\u30ED\u30B9\n\n\u30BF\u30A4\u30C8\u30EB\u30ED\u30B4\u30C7\u30B6\u30A4\u30F3\n------------\n\u77F3\u51FA
+    \u5C1A\u571F\n\n\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3\n-------------\n\u4E2D\u6751
+    \u9686\u4E4B\n\nBGM\n-------------\nGet Wild\uFF08TM Network\uFF09\nSad Creature\uFF08Heavn
+    Burns Red\uFF09\nTHE SECOND ACT\uFF08Tails of Fantasia\uFF09\nDARK CAVE\uFF08Tails
+    of Fantasia\uFF09\nFIGHTING OF THE SPIRIT\uFF08Tails of Fantasia\uFF09\nRIDGE
+    RACER\uFF08Tails of Fantasia From RIDGE RACER\uFF09\n\u30AA\u30FC\u30D7\u30CB\u30F3\u30B0\uFF08\u30DD\u30B1\u30C3\u30C8\u30E2\u30F3\u30B9\u30BF\u30FC\uFF09\n\n\n\u30B9\u30DA\u30B7\u30E3\u30EB\u30B5\u30F3\u30AF\u30B9\n-------------------\nAI
+    Support (ChatGPT)\n\u77F3\u51FA \u5C1A\u571F\nYour Name\n\n===========================\n\u30B5\u30DD\u30FC\u30C8\u3057\u3066\u304F\u308C\u305F\u3059\u3079\u3066\u306E\u65B9\u3005\u3078\n\u5FC3\u3088\u308A\u611F\u8B1D\u7533\u3057\u4E0A\u3052\u307E\u3059\u3002\n\n===========================\n\nPresented
+    by\n\u52C7\u8005\u4E00\u540C\n\nCopyright \xA9 2024 Your Game Studio.\nAll Rights
+    Reserved.\n\n==========================="
 --- !u!222 &227769525
 CanvasRenderer:
   m_ObjectHideFlags: 0

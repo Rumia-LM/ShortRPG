@@ -23,7 +23,7 @@ public class StartSceneTest_Master2 : MonoBehaviour
     public void GoToFieldScene()
     {
         SceneManager.LoadScene("FirstTown_Master2"); //フィールド画面に移動
-        PlayerDataManagerTest_r.Instance.ShowPlayer(); //プレイヤーを表示
+        //PlayerDataManagerTest_r.Instance.ShowPlayer(); //プレイヤーを表示
     }
 
 }

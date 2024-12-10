@@ -24,7 +24,7 @@ public class SceneController_t : MonoBehaviour
         }
         else if (other.CompareTag("LostVillage"))
         {
-            LoadScene("FinalTown_Master2");
+            LoadScene("FinalTown_Master_m");
         }
         else if (other.CompareTag("Home"))
         {
@@ -32,7 +32,7 @@ public class SceneController_t : MonoBehaviour
         }
         else if (other.CompareTag("KingCastle"))
         {
-            LoadScene("SecondCastle_Master2");
+            LoadScene("SecondCastle_Master_m");
         }
         else if (other.CompareTag("WorldMap"))
         {
@@ -50,11 +50,11 @@ public class SceneController_t : MonoBehaviour
                 {
                     playerSpawnPosition = new Vector3(-26.28f, -12.45f, 0); // FieldTest_Master2からの遷移位置
                 }
-                else if (SceneManager.GetActiveScene().name == "FinalTown_Master2")
+                else if (SceneManager.GetActiveScene().name == "FinalTown_Master_m")
                 {
                     playerSpawnPosition = new Vector3(-27.74f, 44.28f, 0); // FinalTown_Master2からの遷移位置
                 }
-                else if (SceneManager.GetActiveScene().name == "SecondCastle_Master2")
+                else if (SceneManager.GetActiveScene().name == "SecondCastle_Master_m")
                 {
                     playerSpawnPosition = new Vector3(26.78f, 13.16f, 0); // SecondCastle_Master2からの遷移位置
                 }
@@ -69,13 +69,13 @@ public class SceneController_t : MonoBehaviour
                     playerSpawnPosition = new Vector3(0, 0, 0); // FieldTest_Master2の初期位置
                 }
                 break;
-            case "FinalTown_Master2":
+            case "FinalTown_Master_m":
                 if (SceneManager.GetActiveScene().name == "FieldTest_Master2")
                 {
                     playerSpawnPosition = new Vector3(0, -2.0f, 0); // FieldTest_Master2の初期位置
                 }
                 break;
-            case "SecondCastle_Master2":
+            case "SecondCastle_Master_m":
                 if (SceneManager.GetActiveScene().name == "FieldTest_Master2")
                 {
                     playerSpawnPosition = new Vector3(-0.08f, -2.0f, 0); // FieldTest_Master2の初期位置

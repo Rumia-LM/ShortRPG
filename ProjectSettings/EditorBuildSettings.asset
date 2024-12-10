@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/ShortDEV/ryoga/Scenes/GameOverTest_r.unity
     guid: b59e16555fbed492a80935c3c9b6029c
   - enabled: 1
+    path: Assets/ShortDEV/Mirai/Scenes/SecondCastle_Master_m.unity
+    guid: 19dd74ffcea977342a3fa94279a9ef32
+  - enabled: 1
+    path: Assets/ShortDEV/Mirai/Scenes/FinalTown_Master_m.unity
+    guid: 2044ebca00ce9664093d6a3249afc941
+  - enabled: 1
     path: Assets/ShortDEV/ryoga/Scenes/StartOverTest_r.unity
     guid: 144619540ca374605ba84d5a228aa496
   - enabled: 1

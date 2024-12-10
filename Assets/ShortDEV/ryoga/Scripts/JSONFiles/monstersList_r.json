@@ -1,28 +1,28 @@
 {
     "monsters": [
         {
-            "name": "Slime",
+            "name": "Ditto",
             "hp": 20,
             "atk": 30,
             "exp": 5,
             "gold": 1,
-            "image":"Slime"
+            "image":"Ditto"
         },
         {
-            "name": "Goblin",
+            "name": "Snorlax",
             "hp": 30,
             "atk": 50,
             "exp": 10,
             "gold": 3,
-            "image":"Goblin"
+            "image":"Snorlax"
         },
         {
-            "name": "Zombie",
+            "name": "Pikachu",
             "hp": 40,
             "atk": 70,
             "exp": 12,
             "gold": 2,
-            "image":"Zombie"
+            "image":"Pikachu"
         }
     ]
 }

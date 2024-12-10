@@ -1,11 +1,12 @@
 {
     "monsters": [
         {
-            "name": "Dragon",
-            "health": 200,
-            "attack": 25,
-            "experience": 100,
-            "gold": 50
+            "name": "Valsabros",
+            "hp": 20,
+            "atk": 30,
+            "exp": 5,
+            "gold": 1,
+            "image":"Valsabros"
         }
     ]
 }

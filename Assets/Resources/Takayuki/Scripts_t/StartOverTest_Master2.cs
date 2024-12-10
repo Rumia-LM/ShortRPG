@@ -12,7 +12,7 @@ public class StartOverTest_Master2 : MonoBehaviour
     void Start(){
         //スタートオーバーテキストを設定
         if(startOverText!=null){
-            startOverText.text="Start Over";
+            startOverText.text="thank you for playing.";
         }
 
         //ボタンテキストを設定

@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/BattleScene/BattleSceneTest_Master2.unity
     guid: 94a01d406f8beb64bb480ea1e739a38d
   - enabled: 1
+    path: "Assets/ShortDEV/Ishii/Scenes/FieldMapScene\uFF3FI.unity"
+    guid: f2519686d5dcb5149b63cad1ff0fa966
+  - enabled: 1
     path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/BossCastle/BossScene_Master2.unity
     guid: b7d6c19e80f95d84a93444f8f2d2d803
   - enabled: 1
@@ -59,6 +62,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/StartScene/StartSceneTest_Master2.unity
     guid: 8592e881c3287094482592005051f751
+  - enabled: 1
+    path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/BattleScene/BossBattle_Master2.unity
+    guid: a8cdd9bf6f46ab94e85b6fd50010e6c6
   - enabled: 1
     path: Assets/Resources/Takayuki/Scenes_t/Master2/Scene/EventTestScene_Master.unity
     guid: ce89a3ed6645a4942b2e0576a108ca0f

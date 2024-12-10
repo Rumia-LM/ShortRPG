@@ -29,7 +29,10 @@ public class BattleManagerTest_Master2 : MonoBehaviour
     private bool isBattleOver=false; //戦闘終了のフラグ
 
     void Start()
-    {
+    {   
+        //プレイヤーを非表示にする
+        PlayerDataManagerTest_Master2.Instance.HidePlayer(); 
+
         //敵リストを初期化（JSONから読み込む）
         LoadEnemiesFromJSON();
 
@@ -80,7 +83,7 @@ public class BattleManagerTest_Master2 : MonoBehaviour
 
     //JSONファイルから敵リストを読み込む
     private void LoadEnemiesFromJSON(){
-        string filePath=Application.dataPath+"/Resources/Takayuki/Scripts_t/Json/monstersList_Master2.json";
+        string filePath=Application.dataPath+"/ShortDEV/ryoga/Scripts/JSONFiles/monstersList_r.json";
         if(File.Exists(filePath)){
             string jsonText=File.ReadAllText(filePath);
             MonsterList_Master2 monsterList=JsonUtility.FromJson<MonsterList_Master2>(jsonText);
@@ -102,7 +105,7 @@ public class BattleManagerTest_Master2 : MonoBehaviour
             currentEnemy=enemyList[randomIndex];
 
             //敵画像を読み込む
-            Sprite enemySprite=Resources.Load<Sprite>($"/Resources/ryoga/Images/{currentEnemy.image}");
+            Sprite enemySprite=Resources.Load<Sprite>($"ryoga/Images/{currentEnemy.image}");
             if(enemySprite!=null){
                 EnemyImage.sprite=enemySprite; //UIに画像を設定
                 EnemyImage.enabled=true; //UIを表示
@@ -353,6 +356,10 @@ public class BattleManagerTest_Master2 : MonoBehaviour
         yield return new WaitForSeconds(1f); //1秒待ってから
         yield return StartCoroutine(FadeOut()); //フェードアウト開始
         SceneManager.LoadScene(sceneName);
+        // フィールドに戻る場合のみプレイヤーを再表示
+        if (sceneName == "FieldTest_Master2"){
+            PlayerDataManagerTest_Master2.Instance.ShowPlayer();
+        }
     }
 
     //フェードアウト処理

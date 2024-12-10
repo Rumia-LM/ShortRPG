@@ -20,15 +20,7 @@ public class PlayerDataManagerTest_r : MonoBehaviour
             Instance=this;
             DontDestroyOnLoad(gameObject); //シーン切り替え時に破棄されない
             Debug.Log($"PlayerDataManagerTest_r instance created: {gameObject.name}");
-            
-            //プレイヤーの生成
-            /*if(playerPrefab!=null&&currentPlayer==null){
-                currentPlayer=Instantiate(playerPrefab,spawnPosition,Quaternion.identity);
-                currentPlayer.name="Player"; //プレイヤー名を設定
-                Debug.Log("Player instantiated successfully.");
-            }else if(playerPrefab==null){
-                Debug.LogError("Player prefab is not assigned.");
-            }*/
+        
         }else{
             //すでにインスタンスが存在する場合は新しいオブジェクトを削除
             Debug.LogWarning($"Duplicate PlayerDataManagerTest_r instance detected: {gameObject.name}. Destroying this instance.");

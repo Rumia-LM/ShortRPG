@@ -177,7 +177,7 @@ public class BattleManagerTest_Master2 : MonoBehaviour
         // 逃げるコマンド
         }else if(action=="escape"){
             yield return LogAction("Hero escaped!");
-            if(UnityEngine.Random.Range(0f,1f)>0.5f){
+            if(UnityEngine.Random.Range(0f,1f)>0f){
                 yield return LogAction("Hero managed to escape!");
                 EndBattle("escape"); //逃げる成功
             }else{
@@ -265,22 +265,28 @@ public class BattleManagerTest_Master2 : MonoBehaviour
         PlayerNameAndHPText.color=originalTextColor;
     }
 
-    //スプライトを点滅させるコルーチン
+    // スプライトを点滅させるコルーチン
     IEnumerator FlashEnemySprite(){
-        if(EnemyImage==null){
+        if (EnemyImage == null){
             Debug.LogError("EnemyImage is not assigned!");
             yield break;
         }
 
-        //点滅回数と間隔を指定
-        int flashCount=3;
-        float flashInterval=0.1f;
-        for(int i=0;i<flashCount;i++){
-            EnemyImage.color=new Color(1f,1f,1f,0f); //透明
+        // 元の色を保存
+        Color originalColor = EnemyImage.color;
+
+        // 点滅回数と間隔を指定
+        int flashCount = 3;
+        float flashInterval = 0.1f;
+
+        for (int i = 0; i < flashCount; i++){
+            EnemyImage.color = new Color(1f, 1f, 1f, 0f); // 透明
             yield return new WaitForSeconds(flashInterval);
-            EnemyImage.color=new Color(1f,1f,1f,1f); //元に戻す
+            EnemyImage.color = originalColor; // 元の色に戻す
             yield return new WaitForSeconds(flashInterval);
         }
+        // 最後に元の色を完全にリセット
+        EnemyImage.color = originalColor;
     }
 
     // バトルログを更新

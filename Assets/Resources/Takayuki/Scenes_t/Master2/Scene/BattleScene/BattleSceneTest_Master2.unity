@@ -133,6 +133,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &749033051 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2181027552250534007, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+  m_PrefabInstance: {fileID: 3682589271938589194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &837782687 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8208185513594090954, guid: 6243a0512df7041458497ca59f297b66, type: 3}
@@ -144,6 +155,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &900796620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1605799471849915428, guid: 31d562e13be386642b9a5077bd54e9bb, type: 3}
+  m_PrefabInstance: {fileID: 4077572036439080274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &900796621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900796620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cffa411824290145b5e06abfaaaf3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackButton: {fileID: 1194767030}
+  HealButton: {fileID: 837782687}
+  EscapeButton: {fileID: 1585746807}
+  PlayerHPBar: {fileID: 1479601832}
+  PlayerNameAndHPText: {fileID: 939843757}
+  EnemyHPBar: {fileID: 1867275237}
+  BattleLogText: {fileID: 1194352146}
+  BattleLogScrollRect: {fileID: 2105663959}
+  FadeImage: {fileID: 672978045}
+  currentEnemy:
+    name: 
+    hp: 0
+    atk: 0
+    exp: 0
+    gold: 0
+    image: 
+  EnemyImage: {fileID: 749033051}
 --- !u!114 &939843757 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3999716873130226681, guid: 6243a0512df7041458497ca59f297b66, type: 3}
@@ -197,17 +242,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1669992743 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 866149068983967078, guid: 6243a0512df7041458497ca59f297b66, type: 3}
-  m_PrefabInstance: {fileID: 3682589271938589194}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1747668289
@@ -406,6 +440,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7381740550237682679, guid: 9df9fdeb2fba7284f996932fa98cec0a, type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 8681908451422749447, guid: 9317d04920cc3894a938a7b71624b7e4, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -466,6 +504,34 @@ PrefabInstance:
     - target: {fileID: 2015041287235797031, guid: 6243a0512df7041458497ca59f297b66, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181027552250534007, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+      propertyPath: m_Color.a
+      value: 0.003921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181027552250534007, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+      propertyPath: m_Color.b
+      value: 0.003921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181027552250534007, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+      propertyPath: m_Color.g
+      value: 0.003921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181027552250534007, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+      propertyPath: m_Color.r
+      value: 0.003921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181027552250534007, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181027552250534007, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181027552250534007, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3289029194275452809, guid: 6243a0512df7041458497ca59f297b66, type: 3}
       propertyPath: m_AnchorMax.y
@@ -607,10 +673,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7368766597511368473, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8107382063974179209, guid: 6243a0512df7041458497ca59f297b66, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8107382063974179209, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158802918317242632, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565937043504342168, guid: 6243a0512df7041458497ca59f297b66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -679,7 +761,7 @@ PrefabInstance:
     - target: {fileID: 3430966821065449750, guid: 31d562e13be386642b9a5077bd54e9bb, type: 3}
       propertyPath: EnemyImage
       value: 
-      objectReference: {fileID: 1669992743}
+      objectReference: {fileID: 0}
     - target: {fileID: 3430966821065449750, guid: 31d562e13be386642b9a5077bd54e9bb, type: 3}
       propertyPath: HealButton
       value: 
@@ -711,7 +793,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1605799471849915428, guid: 31d562e13be386642b9a5077bd54e9bb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 900796621}
   m_SourcePrefab: {fileID: 100100000, guid: 31d562e13be386642b9a5077bd54e9bb, type: 3}
 --- !u!1001 &4216497503883021612
 PrefabInstance:

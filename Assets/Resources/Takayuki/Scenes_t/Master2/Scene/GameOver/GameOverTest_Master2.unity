@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 385768371}
   - component: {fileID: 385768370}
   m_Layer: 0
-  m_Name: GOMain Camera_r
+  m_Name: GOMain Camera_Master
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 515526386}
   - component: {fileID: 515526385}
   m_Layer: 5
-  m_Name: ToStartButton_r
+  m_Name: ToStartButton_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,8 +297,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 583638288}
-        m_TargetAssemblyTypeName: GameOverTest_r, Assembly-CSharp
+      - m_Target: {fileID: 583638290}
+        m_TargetAssemblyTypeName: GameOverTest_Master2, Assembly-CSharp
         m_MethodName: GoToStartScene
         m_Mode: 1
         m_Arguments:
@@ -356,28 +356,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 583638289}
-  - component: {fileID: 583638288}
+  - component: {fileID: 583638290}
   m_Layer: 0
-  m_Name: GameOverManagerTest_r
+  m_Name: GameOverManagerTest_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &583638288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583638287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d91ee6c0a9640e6a90fa060dcfbf1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverText: {fileID: 1745546059}
-  buttonText: {fileID: 1394221924}
 --- !u!4 &583638289
 Transform:
   m_ObjectHideFlags: 0
@@ -393,6 +379,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &583638290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583638287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08669813a8ffaf47ab392e6d8080083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverText: {fileID: 1745546059}
+  buttonText: {fileID: 1394221924}
 --- !u!1 &778946496
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 778946498}
   - component: {fileID: 778946497}
   m_Layer: 5
-  m_Name: GOCanvas_r
+  m_Name: GOCanvas_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 1162244098}
   - component: {fileID: 1162244097}
   m_Layer: 0
-  m_Name: GOEventSystem_r
+  m_Name: GOEventSystem_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 1394221925}
   - component: {fileID: 1394221924}
   m_Layer: 5
-  m_Name: ToStartText_r
+  m_Name: ToStartText_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 1745546060}
   - component: {fileID: 1745546059}
   m_Layer: 5
-  m_Name: GameOverText_r
+  m_Name: GameOverText_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
